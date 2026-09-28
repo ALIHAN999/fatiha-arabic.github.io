@@ -2,13 +2,13 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- Viewport-fit=cover для корректных отступов внутри мобильного клиента VK -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово ٱلرَّحِيمِ — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово ٱلرَّحِيمِ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Manrope и Noto Naskh Arabic -->
+  <!-- Шрифты: Noto Naskh Arabic и Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -25,8 +25,6 @@
       --accent-text: #92400e;
       --blue-bg: #e0f2fe;
       --blue-text: #0369a1;
-      --green-bg: #f0fdf4;
-      --green-text: #166534;
     }
 
     * {
@@ -40,13 +38,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      /* Безопасные отступы под вырезы дисплея и нижнюю панель навигации VK */
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -74,12 +67,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -114,8 +105,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -201,8 +190,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -216,31 +205,6 @@
 
     .nowrap {
       white-space: nowrap;
-    }
-
-    /* Карточки причин */
-    .reason-box {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 8px;
-    }
-
-    .reason-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .reason-text {
-      font-size: 0.85rem;
-      color: #334155;
-      line-height: 1.4;
     }
 
     /* Сравнение двух имён */
@@ -275,13 +239,30 @@
     }
 
     /* Карточки подсказок */
+    .phonetic-card {
+      background: var(--blue-bg);
+      border: 1px solid #bae6fd;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--blue-text);
+      margin-bottom: 14px;
+    }
+
+    .phonetic-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
     .tip-card {
       background: var(--accent-bg);
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -314,7 +295,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -322,38 +302,7 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero { font-size: 4.5rem; }
-      .transcription { font-size: 1.45rem; }
-      .meaning { font-size: 1.15rem; }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title { font-size: 1.2rem; }
-      .phrase-arabic { font-size: 2.3rem; }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
   </style>
-
 </head>
 <body>
 
@@ -361,20 +310,20 @@
     
     <!-- Навигация наверх -->
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
-      <span class="ayah-indicator">Аят 1 • Слово 4&nbsp;(Конец аята)</span>
+      <a href="index.html" class="back-btn">← К суре</a>
+      <span class="ayah-indicator">Аят 1 • Слово 4 (Конец аята)</span>
     </div>
 
     <!-- Заглавный блок -->
     <header class="hero-card">
       <div class="arabic-hero">ٱلرَّحِيمِ</div>
-      <div class="transcription">Ар-Рахӣми</div>
+      <div class="transcription">Ар-Рахи́ми</div>
       <div class="meaning">«Милосердного»</div>
     </header>
 
     <!-- Роль слова -->
     <section class="section-card">
-      <h2 class="section-title">✨ Роль слова в&nbsp;аяте</h2>
+      <h2 class="section-title">✨ Роль слова в аяте</h2>
       
       <div class="phrase-box">
         <div class="phrase-arabic">ٱللَّهِ ٱلرَّحْمَانِ ٱلرَّحِيمِ</div>
@@ -385,60 +334,41 @@
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            Это&nbsp;<strong>второе описание</strong>&nbsp;(второй сыфат) к&nbsp;слову <span class="arabic-inline">ٱللَّهِ</span>. В&nbsp;арабском языке к&nbsp;одному имени может примыкать несколько согласованных определений подряд.
+            Это <strong>второе описание</strong> (второй сыфат) к слову <span class="arabic-inline">ٱللَّهِ</span>. В арабском языке к одному предмету или имени может примыкать несколько описаний подряд.
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div class="step-content">
-            Как&nbsp;и&nbsp;предыдущее имя, оно&nbsp;полностью повторяет падеж определяемого слова и&nbsp;получает огласовку <strong>кясра&nbsp;( ـِ&nbsp;)</strong> на&nbsp;конце: <span class="nowrap"><em>«Ар-Рахӣм<strong style="color: var(--primary);">и</strong>»</em></span>.
+            Как и предыдущее слово, оно полностью повторяет падеж главного имени и получает огласовку <strong>кясра ( ـِ )</strong> на конце: <span class="nowrap"><em>«Ар-Рахим<strong style="color: var(--primary);">и</strong>»</em></span>.
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Почему нет танвина? -->
-    <section class="section-card">
-      <h2 class="section-title">🚫 Почему нет танвина&nbsp;(-ин / -ун)?</h2>
-      
-      <div class="reason-box">
-        <div class="reason-header">Правило несовместимости с&nbsp;артиклем&nbsp;(الـ)</div>
-        <div class="reason-text">
-          Слово начинается с&nbsp;определённого артикля <span class="arabic-inline">الـ</span>. В&nbsp;арабской грамматике артикль определённости и&nbsp;танвин&nbsp;(признак неопределённости) являются <strong>взаимоисключающими</strong>. Как&nbsp;только к&nbsp;слову присоединяется <span class="arabic-inline">الـ</span>, танвин исчезает: пишется одинарная огласовка <span class="arabic-inline">ٱلرَّحِيمِ</span> вместо <span class="arabic-inline">رَحِيمٍ</span>&nbsp;(<em>рахӣмин</em>).
-        </div>
-      </div>
-
-      <div class="reason-box">
-        <div class="reason-header">Сравнение с&nbsp;предыдущим словом ٱلرَّحْمَانِ</div>
-        <div class="reason-text">
-          В&nbsp;отличие от&nbsp;слова <span class="arabic-inline">رَحْمَان</span>&nbsp;(которое&nbsp;не&nbsp;принимает танвин из-за&nbsp;своей формы даже без&nbsp;артикля), слово <span class="arabic-inline">رَحِيم</span> в&nbsp;неопределённом состоянии является обычным трёхпадежным именем и&nbsp;танвин принимает&nbsp;(<em>рахӣмун / рахӣман / рахӣмин</em>). Здесь же&nbsp;танвин отсутствует <strong>исключительно из-за&nbsp;наличия артикля <span class="arabic-inline">الـ</span></strong>.
         </div>
       </div>
     </section>
 
     <!-- В чём разница: Ар-Рахман и Ар-Рахим? -->
     <section class="section-card">
-      <h2 class="section-title">💡 В&nbsp;чём разница между ними?</h2>
+      <h2 class="section-title">💡 В чём разница между ними?</h2>
       <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
-        Оба имени происходят от&nbsp;одного корня <span class="arabic-inline">ر - ح - م</span>&nbsp;(«милость»), но&nbsp;оттенки их&nbsp;смысла дополняют друг друга:
+        Оба имени происходят от одного корня<br> <span class="arabic-inline">ر  - ح - م</span> («милость»), но оттенки их смысла дополняют друг друга:
       </p>
 
       <div class="compare-grid">
         <div class="compare-item">
           <div class="compare-name">ٱلرَّحْمَانِ</div>
-          <div class="compare-desc"><strong>Всеобъемлющая милость:</strong> даруется абсолютно всем созданиям в&nbsp;земной жизни&nbsp;(жизнь, пропитание, солнце, здоровье).</div>
+          <div class="compare-desc"><strong>Всеобъемлющая милость:</strong> даруется абсолютно всем созданиям в земной жизни (жизнь, пропитание, солнце, здоровье).</div>
         </div>
         <div class="compare-item">
           <div class="compare-name">ٱلرَّحِيمِ</div>
-          <div class="compare-desc"><strong>Постоянная милость:</strong> непрерывное проявление милосердия&nbsp;(особенно к&nbsp;верующим в&nbsp;Вечной жизни).</div>
+          <div class="compare-desc"><strong>Постоянная милость:</strong> непрерывное проявление милосердия (особенно к верующим в День суда).</div>
         </div>
       </div>
     </section>
 
     <!-- Солнечная буква -->
     <div class="tip-card">
-      <strong>☀️ Напоминание о&nbsp;солнечной букве:</strong>
-      Буква <span class="arabic-inline">ر</span>&nbsp;(Ра) является солнечной, поэтому звук «Л» в&nbsp;артикле ассимилируется, а&nbsp;буква «Р» удваивается шаддой: читаем <b>«Ар-Рахӣм»</b>, а&nbsp;не&nbsp;«Аль-Рахӣм».
+      <strong>☀️ Напоминание о солнечной букве:</strong>
+      Буква <span class="arabic-inline">ر</span> (Ра) является солнечной, поэтому звук «Л» в артикле опускается, а буква «Р» удваивается шаддой: читаем <b>«Ар-Рахи́м»,</b> <br>а не «Аль-Рахи́м».
     </div>
 
     <!-- Навигация -->
@@ -449,6 +379,5 @@
 
   </div>
 
-  
 </body>
 </html>

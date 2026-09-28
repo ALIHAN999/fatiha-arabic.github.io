@@ -2,11 +2,10 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- Viewport-fit=cover для корректного отображения внутри мобильного клиента VK -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово نَسْتَعِينُ — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово نَسْتَعِينُ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic, Inter и Manrope -->
+  <!-- Шрифты: Noto Naskh Arabic и Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
@@ -44,13 +43,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      /* Безопасные отступы под системные панели и вырезы смартфона */
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -78,12 +72,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -118,8 +110,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -257,8 +247,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -281,7 +271,7 @@
       padding: 10px 12px;
       border-radius: 0 10px 10px 0;
       margin-bottom: 10px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
     .qa-question {
@@ -292,17 +282,34 @@
 
     .qa-answer {
       color: #334155;
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
     /* Подсказки */
+    .phonetic-card {
+      background: var(--blue-bg);
+      border: 1px solid #bae6fd;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--blue-text);
+      margin-bottom: 14px;
+    }
+
+    .phonetic-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
     .tip-card {
       background: var(--accent-bg);
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -335,7 +342,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -343,40 +349,7 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-    
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero { font-size: 4.5rem; }
-      .transcription { font-size: 1.45rem; }
-      .meaning { font-size: 1.15rem; }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title { font-size: 1.2rem; }
-      .phrase-arabic { font-size: 2.3rem; }
-      .math-arabic { font-size: 2.2rem; height: 52px; }
-      .math-sign { font-size: 1.6rem; height: 52px; }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
   </style>
-
 </head>
 <body>
 
@@ -384,20 +357,20 @@
     
     <!-- Навигация наверх -->
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
-      <span class="ayah-indicator">Аят 5 • Слово 4&nbsp;(Конец аята)</span>
+      <a href="index.html" class="back-btn">← К суре</a>
+      <span class="ayah-indicator">Аят 5 • Слово 4 (Конец аята)</span>
     </div>
 
     <!-- Заглавный блок -->
     <header class="hero-card">
       <div class="arabic-hero">نَسْتَعِينُ</div>
       <div class="transcription">Наста‘ӣну</div>
-      <div class="meaning">«Мы&nbsp;просим о&nbsp;помощи»</div>
+      <div class="meaning">«Мы просим о помощи»</div>
     </header>
 
     <!-- Из чего состоит глагол -->
     <section class="section-card">
-      <h2 class="section-title">🔍 Из&nbsp;чего&nbsp;состоит глагол?</h2>
+      <h2 class="section-title">🔍 Из чего состоит глагол?</h2>
       
       <div class="math-formula">
         <!-- 1. Приставка "Мы" -->
@@ -427,7 +400,7 @@
         <!-- Итог -->
         <div class="math-item">
           <div class="math-arabic" style="color: var(--primary);">نَسْتَعِينُ</div>
-          <div class="math-label">«мы&nbsp;молим о&nbsp;помощи»</div>
+          <div class="math-label">«мы молим о помощи»</div>
         </div>
       </div>
 
@@ -435,19 +408,19 @@
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            <span class="arabic-inline">نَـ</span>&nbsp;(На-) — приставка 1-го лица множественного числа: <strong>«мы»</strong>&nbsp;(точно такая&nbsp;же,&nbsp;как&nbsp;в&nbsp;слове <span class="arabic-inline">نَعْبُدُ</span>).
+            <span class="arabic-inline">نَـ</span> (На-) — приставка 1-го лица множественного числа: <strong>«мы»</strong> (точно такая же, как в слове <span class="arabic-inline">نَعْبُدُ</span>).
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div class="step-content">
-            <span class="arabic-inline">ـسْتَـ</span>&nbsp;(<em>-ста-</em>) — служебный элемент 10-й породы глагола со&nbsp;значением <strong>«настойчиво просить / искать»</strong>.
+            <span class="arabic-inline">ـسْتَـ</span> (<em>-ста-</em>) — служебный элемент 10-й породы глагола со значением <strong>«настойчиво просить / искать»</strong>.
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">3</div>
           <div class="step-content">
-            <span class="arabic-inline">ـعِينُ</span> восходит к&nbsp;корню <span class="arabic-inline">ع - و - ن</span>&nbsp;(<em>‘авн</em> — «поддержка, подмога»). Соединяясь вместе, слово выражает именно <strong>мольбу о&nbsp;помощи</strong>.
+            <span class="arabic-inline">ـعِينُ</span> восходит к корню <span class="arabic-inline">ع - و - ن</span> (<em>‘авн</em> — «поддержка, подмога»). Соединяясь вместе, слово выражает именно <strong>мольбу о помощи</strong>.
           </div>
         </div>
       </div>
@@ -459,13 +432,13 @@
       
       <div class="phrase-box">
         <div class="phrase-arabic">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
-        <div class="phrase-meaning">Лишь Тебе&nbsp;мы&nbsp;поклоняемся <strong>и&nbsp;лишь Тебя&nbsp;молим о&nbsp;помощи</strong></div>
+        <div class="phrase-meaning">Лишь Тебе мы поклоняемся <strong>и лишь Тебя молим о помощи</strong></div>
       </div>
 
       <div class="qa-box">
-        <div class="qa-question">Почему на&nbsp;конце дамма&nbsp;( ـُ&nbsp;)?</div>
+        <div class="qa-question">Почему на конце дамма ( ـُ )?</div>
         <div class="qa-answer">
-          Как&nbsp;и&nbsp;глагол <span class="arabic-inline">نَعْبُدُ</span>, это&nbsp;глагол настоящего времени в&nbsp;своей стандартной форме. Перед ним&nbsp;нет частиц, требующих сукуна или&nbsp;фатхи, поэтому окончание сохраняет базовую <strong>дамму&nbsp;( ـُ&nbsp;)</strong>: <span class="nowrap"><em>«Наста‘ӣн<strong style="color: var(--primary);">у</strong>»</em></span>.
+          Как и глагол <span class="arabic-inline">نَعْبُدُ</span>, это глагол настоящего времени в своей стандартной форме. Перед ним нет частиц, требующих сукуна или фатхи, поэтому окончание сохраняет базовую <strong>дамму ( ـُ )</strong>: <span class="nowrap"><em>«Наста‘ӣн<strong style="color: var(--primary);">у</strong>»</em></span>.
         </div>
       </div>
     </section>
@@ -478,6 +451,5 @@
 
   </div>
 
-  
 </body>
 </html>

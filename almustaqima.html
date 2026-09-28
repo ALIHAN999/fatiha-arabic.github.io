@@ -2,12 +2,12 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово ٱلْمُسْتَقِيمَ — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово ٱلْمُسْتَقِيمَ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Manrope и Noto Naskh Arabic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -41,12 +41,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -74,12 +70,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -113,8 +107,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -139,16 +131,16 @@
       gap: 8px;
     }
 
+    /* АДАПТИВНАЯ СЕТКА ФОРМУЛЫ */
     .math-formula {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
       align-items: start;
-      justify-items: center;
-      gap: 6px;
+      gap: 4px;
       background: #f8fafc;
       border: 1px solid var(--border-color);
       border-radius: 14px;
-      padding: 16px 8px;
+      padding: 14px 6px;
       margin-bottom: 14px;
       width: 100%;
       box-sizing: border-box;
@@ -167,8 +159,8 @@
       font-family: 'Noto Naskh Arabic', serif;
       font-size: clamp(1.2rem, 4.5vw, 1.65rem);
       font-weight: 700;
-      line-height: 1;
-      height: 48px;
+      line-height: 1.2;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -181,7 +173,7 @@
       font-size: clamp(0.62rem, 2.2vw, 0.72rem);
       font-weight: 600;
       color: var(--text-muted);
-      margin-top: 6px;
+      margin-top: 4px;
       line-height: 1.2;
       text-align: center;
       width: 100%;
@@ -189,17 +181,15 @@
     }
 
     .math-sign {
-      font-family: 'Manrope', system-ui, sans-serif;
-      font-size: clamp(1.1rem, 3.2vw, 1.4rem);
-      font-weight: 600;
+      font-size: clamp(0.9rem, 3vw, 1.2rem);
+      font-weight: 700;
       color: #94a3b8;
-      height: 48px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       user-select: none;
-      padding: 0 2px;
-      transform: translateY(-2px);
+      padding: 0 1px;
     }
 
     .phrase-box {
@@ -260,8 +250,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -283,7 +273,7 @@
       padding: 10px 12px;
       border-radius: 0 10px 10px 0;
       margin-bottom: 10px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
     .qa-question {
@@ -294,31 +284,24 @@
 
     .qa-answer {
       color: #334155;
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
-    .reason-box {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 8px;
-    }
-
-    .reason-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .reason-text {
+    .phonetic-card {
+      background: var(--blue-bg);
+      border: 1px solid #bae6fd;
+      border-radius: 14px;
+      padding: 14px;
       font-size: 0.85rem;
-      color: #334155;
       line-height: 1.45;
+      color: var(--blue-text);
+      margin-bottom: 14px;
+    }
+
+    .phonetic-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
     }
 
     .tip-card {
@@ -326,8 +309,8 @@
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -359,7 +342,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -367,58 +349,25 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero { font-size: 4.5rem; }
-      .transcription { font-size: 1.45rem; }
-      .meaning { font-size: 1.15rem; }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title { font-size: 1.2rem; }
-      .phrase-arabic { font-size: 2.3rem; }
-      .math-arabic { font-size: 2.2rem; height: 52px; }
-      .math-sign { font-size: 1.6rem; height: 52px; }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
   </style>
-
 </head>
 <body>
 
   <div class="container">
     
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
-      <span class="ayah-indicator">Аят 6 • Слово 3&nbsp;(Конец аята)</span>
+      <a href="index.html" class="back-btn">← К суре</a>
+      <span class="ayah-indicator">Аят 6 • Слово 3 (Конец аята)</span>
     </div>
 
     <header class="hero-card">
       <div class="arabic-hero">ٱلْمُسْتَقِيمَ</div>
-      <div class="transcription">Аль-Мустаки́ма</div>
+      <div class="transcription">Аль-Мустакъӣма </div>
       <div class="meaning">«Прямой» / «Непоколебимый»</div>
     </header>
 
     <section class="section-card">
-      <h2 class="section-title">🔍 Из&nbsp;чего&nbsp;состоит слово?</h2>
+      <h2 class="section-title">🔍 Из чего состоит слово?</h2>
       
       <div class="math-formula">
         <div class="math-item">
@@ -441,56 +390,37 @@
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            <span class="arabic-inline">ٱلْـ</span>&nbsp;(Аль) — определённый артикль. Он&nbsp;показывает, что&nbsp;слово связано с&nbsp;конкретным путём, о&nbsp;котором идёт речь.
+            <span class="arabic-inline">ٱلْـ</span> (Аль) — определённый артикль. Он показывает, что слово связано с конкретным путём, о котором идёт речь.
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div class="step-content">
-            <span class="arabic-inline">مُسْتَقِيم</span>&nbsp;(Мустак̣ӣм) — причастие, образованное от&nbsp;корня <span class="arabic-inline">ق - و - م</span> со&nbsp;значением «стоять прямо, без&nbsp;искривлений и&nbsp;отклонений».
+            <span class="arabic-inline">مُسْتَقِيم</span> (Мустакъӣм) — происходит от корня <span class="arabic-inline">ق - و - م</span> <br>со значением «стоять прямо, <br>без искривлений и отклонений».
           </div>
         </div>
       </div>
     </section>
 
     <section class="section-card">
-      <h2 class="section-title">✨ Роль слова: Описание&nbsp;(Сыфат)</h2>
+      <h2 class="section-title">✨ Роль слова: Описание (Сыфат)</h2>
       
       <div class="phrase-box">
         <div class="phrase-arabic">ٱلصِّرَاطَ ٱلْمُسْتَقِيمَ</div>
-        <div class="phrase-meaning">Путь&nbsp;(какой?) → <strong>Прямой</strong></div>
+        <div class="phrase-meaning">Путь (какой?) → <strong>Прямой</strong></div>
       </div>
 
       <div class="qa-box">
-        <div class="qa-question">Почему на&nbsp;конце фатха&nbsp;( ـَ&nbsp;)?</div>
+        <div class="qa-question">Почему на конце фатха ( ـَ )?</div>
         <div class="qa-answer">
-          В&nbsp;арабском языке определение&nbsp;(<strong>Сыфат</strong>) работает как&nbsp;зеркало: оно&nbsp;полностью копирует падеж существительного, которое&nbsp;описывает. Так как&nbsp;определяемое слово <span class="arabic-inline">ٱلصِّرَاطَ</span> стояло с&nbsp;огласовкой <strong>фатха</strong>&nbsp;(винительный падеж прямого дополнения), то&nbsp;и&nbsp;слово <span class="arabic-inline">ٱلْمُسْتَقِيمَ</span> в&nbsp;точности повторяет эту&nbsp;огласовку: <span class="nowrap"><em>«Аль-Мустак̣ӣм<strong style="color: var(--primary);">а</strong>»</em></span>.
-        </div>
-      </div>
-    </section>
-
-    <!-- Почему нет танвина? -->
-    <section class="section-card">
-      <h2 class="section-title">🚫 Почему нет танвина&nbsp;(-ан)?</h2>
-      
-      <div class="reason-box">
-        <div class="reason-header">Правило 1 • Несовместимость с&nbsp;артиклем&nbsp;(الـ)</div>
-        <div class="reason-text">
-          Само&nbsp;по&nbsp;себе&nbsp;слово <span class="arabic-inline">مُسْتَقِيم</span> является обычным трёхпадежным именем и&nbsp;в&nbsp;неопределённом состоянии принимает танвин: <span class="arabic-inline">مُسْتَقِيمًا</span>&nbsp;(<em>мустак̣ӣман</em> — «какой-то&nbsp;прямой»). Однако добавление артикля определённости <span class="arabic-inline">الـ</span> немедленно отменяет танвин: пишется одинарная фатха — <span class="arabic-inline">ٱلْمُسْتَقِيمَ</span>.
-        </div>
-      </div>
-
-      <div class="reason-box">
-        <div class="reason-header">Правило 2 • Согласование с&nbsp;определяемым словом&nbsp;(Сыфат)</div>
-        <div class="reason-text">
-          Поскольку главное слово <span class="arabic-inline">ٱلصِّرَاطَ</span> уже является определённым благодаря артиклю, его&nbsp;определение <span class="arabic-inline">ٱلْمُسْتَقِيمَ</span> обязано полностью повторить этот&nbsp;признак и&nbsp;тоже принять артикль <span class="arabic-inline">الـ</span>. В&nbsp;результате оба слова лишаются танвина и&nbsp;звучат в&nbsp;едином согласованном ритме.
+          В арабском языке прилагательное-описание (<strong>Сыфат</strong>) работает как зеркало: оно полностью копирует падеж существительного, которое описывает. Так как слово <span class="arabic-inline">ٱلصِّرَاطَ</span> стояло с огласовкой <strong>фатха</strong> (винительный падеж прямого дополнения), то и слово <span class="arabic-inline">ٱلْمُسْتَقِيمَ</span> <br>в точности повторяет эту огласовку: <span class="nowrap"><em>«Аль-Мустакъӣм<strong style="color: var(--primary);">а</strong>»</em></span>.
         </div>
       </div>
     </section>
 
     <div class="tip-card">
-      <strong>💡 Что&nbsp;означает «Мустаки́м»?</strong>
-      Это&nbsp;путь, который&nbsp;обладает тремя качествами одновременно: он&nbsp;<b>кратчайший</b>&nbsp;(потому что&nbsp;прямая линия всегда короче кривой), он&nbsp;<b>ровный</b>&nbsp;(без&nbsp;обрывов и&nbsp;опасных виражей) и&nbsp;он&nbsp;<b>устремлён ровно вверх</b> к&nbsp;довольству Господа. Сбиться с&nbsp;такого&nbsp;пути можно, лишь свернув в&nbsp;сторону.
+      <strong>💡 Что означает «Мустакъӣм»?</strong>
+      Это путь, который обладает тремя качествами одновременно: <br>он <b>кратчайший</b> (потому что прямая линия всегда короче кривой), <br>он <b>ровный</b> (без обрывов и опасных виражей) <br>и он <b>устремлён ровно вверх</b> к довольству Господа. <br>Сбиться с такого пути можно, лишь свернув в сторону.
     </div>
 
     <div class="nav-buttons">
@@ -500,6 +430,5 @@
 
   </div>
 
-  
 </body>
 </html>

@@ -2,11 +2,10 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- Viewport-fit=cover для корректного отображения внутри мобильного клиента VK -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово يَوْمِ — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово يَوْمِ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic, Inter и Manrope -->
+  <!-- Шрифты: Noto Naskh Arabic и Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
@@ -41,13 +40,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      /* Безопасные отступы под системные панели и вырезы смартфона */
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -75,12 +69,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -115,8 +107,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -202,8 +192,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -226,7 +216,7 @@
       padding: 10px 12px;
       border-radius: 0 10px 10px 0;
       margin-bottom: 10px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
     .qa-question {
@@ -237,17 +227,34 @@
 
     .qa-answer {
       color: #334155;
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
-    /* Карточка тонкости смысла */
+    /* Подсказки */
+    .phonetic-card {
+      background: var(--blue-bg);
+      border: 1px solid #bae6fd;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--blue-text);
+      margin-bottom: 14px;
+    }
+
+    .phonetic-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
     .tip-card {
       background: var(--accent-bg);
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -280,7 +287,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -288,38 +294,7 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-    
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero { font-size: 4.5rem; }
-      .transcription { font-size: 1.45rem; }
-      .meaning { font-size: 1.15rem; }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title { font-size: 1.2rem; }
-      .phrase-arabic { font-size: 2.3rem; }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
   </style>
-
 </head>
 <body>
 
@@ -327,7 +302,7 @@
     
     <!-- Навигация наверх -->
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
+      <a href="index.html" class="back-btn">← К суре</a>
       <span class="ayah-indicator">Аят 4 • Слово 2</span>
     </div>
 
@@ -344,20 +319,20 @@
       
       <div class="phrase-box">
         <div class="phrase-arabic">مَالِكِ يَوْمِ ٱلدِّينِ</div>
-        <div class="phrase-meaning">Властелину&nbsp;(чего?) → <strong>Дня</strong>&nbsp;(чего?) → <strong>Воздаяния</strong></div>
+        <div class="phrase-meaning">Властелину (чего?) → <strong>Дня</strong> (чего?) → <strong>Воздаяния</strong></div>
       </div>
 
       <div class="steps-list">
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            <strong>Оно&nbsp;подчиняется первому слову:</strong> отвечает на&nbsp;вопрос <em>«Властелину чего? — Дня»</em>, завершая первую связку владения.
+            <strong>Оно подчиняется первому слову:</strong> отвечает на вопрос <em>«Властелину чего? — Дня»</em>, завершая первую связку владения.
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div class="step-content">
-            <strong>Оно&nbsp;подчиняет следующее слово:</strong> начинает вторую связку <em>«День чего? — Суда / Воздаяния»</em>. Поэтому у&nbsp;него&nbsp;нет артикля <span class="arabic-inline">الـ</span> и&nbsp;нет танвина на&nbsp;конце.
+            <strong>Оно подчиняет следующее слово:</strong> начинает вторую связку <em>«День чего? — Суда / Воздаяния»</em>. Поэтому у него нет артикля <span class="arabic-inline">الـ</span> <br>и нет танвина на конце.
           </div>
         </div>
       </div>
@@ -365,20 +340,20 @@
 
     <!-- Почему на конце кясра? -->
     <section class="section-card">
-      <h2 class="section-title">❓ Почему на&nbsp;конце черточка снизу&nbsp;(кясра)?</h2>
+      <h2 class="section-title">❓ Почему на конце черточка снизу (кясра)?</h2>
       
       <div class="qa-box">
         <div class="qa-question">Правило зависимого слова:</div>
         <div class="qa-answer">
-          Так как&nbsp;слово <span class="arabic-inline">يَوْمِ</span> отвечает на&nbsp;вопрос <em>«чего?»</em> после слова <span class="arabic-inline">مَالِكِ</span>, оно&nbsp;встает в&nbsp;родительный падеж и&nbsp;принимает огласовку <strong>кясра&nbsp;( ـِ&nbsp;)</strong>: <span class="nowrap"><em>«Мāлики йавм<strong style="color: var(--primary);">и</strong>»</em></span>.
+          Так как слово <span class="arabic-inline">يَوْمِ</span> отвечает на вопрос <em>«чего?»</em> после слова <span class="arabic-inline">مَالِكِ</span>, оно встает <br>в родительный падеж и принимает огласовку <strong>кясра ( ـِ )</strong>: <span class="nowrap"><em>«Мāлики йавм<strong style="color: var(--primary);">и</strong>»</em></span>.
         </div>
       </div>
     </section>
 
     <!-- Тонкость понятия «День» в арабском языке -->
     <div class="tip-card">
-      <strong>💡 Что&nbsp;означает «Йавм» в&nbsp;Коране?</strong>
-      В&nbsp;бытовой речи <em>«йавм»</em> — это&nbsp;привычный день от&nbsp;рассвета до&nbsp;заката. Однако в&nbsp;кораническом контексте это&nbsp;слово обозначает колоссальный временной отрезок, судьбоносную эпоху или&nbsp;событие, когда свершится суд над&nbsp;всеми деяниями.
+      <strong>💡 Что означает «Йавм» в Коране?</strong>
+      В бытовой речи <em>«йавм»</em> — это привычный день от рассвета до заката. Однако <br>в кораническом контексте это слово обозначает колоссальный временной отрезок, судьбоносную эпоху или событие, когда свершится суд над всеми деяниями.
     </div>
 
     <!-- Навигация между словами -->
@@ -389,6 +364,5 @@
 
   </div>
 
-  
 </body>
 </html>

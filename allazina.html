@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово ٱلَّذِينَ — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово ٱلَّذِينَ — Простой разбор для начинающих</title>
 
   <!-- Шрифты: Noto Naskh Arabic и Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,12 +41,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -74,12 +70,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -114,8 +108,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -201,8 +193,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -225,7 +217,7 @@
       padding: 10px 12px;
       border-radius: 0 10px 10px 0;
       margin-bottom: 10px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
     .qa-question {
@@ -236,17 +228,17 @@
 
     .qa-answer {
       color: #334155;
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
-    /* Подсказки */
+    /* Карточки подсказок */
     .phonetic-card {
       background: var(--blue-bg);
       border: 1px solid #bae6fd;
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--blue-text);
       margin-bottom: 14px;
     }
@@ -262,8 +254,8 @@
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -296,7 +288,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -304,56 +295,7 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero {
-        font-size: 4.5rem;
-      }
-      .transcription {
-        font-size: 1.45rem;
-      }
-      .meaning {
-        font-size: 1.15rem;
-      }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title {
-        font-size: 1.2rem;
-      }
-      .phrase-arabic {
-        font-size: 2.3rem;
-      }
-      .math-arabic {
-        font-size: 2.2rem;
-        height: 52px;
-      }
-      .math-sign {
-        font-size: 1.6rem;
-        height: 52px;
-      }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
   </style>
-
 </head>
 <body>
 
@@ -361,7 +303,7 @@
     
     <!-- Навигация наверх -->
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
+      <a href="index.html" class="back-btn">← К суре</a>
       <span class="ayah-indicator">Аят 7 • Слово 2</span>
     </div>
 
@@ -369,29 +311,29 @@
     <header class="hero-card">
       <div class="arabic-hero">ٱلَّذِينَ</div>
       <div class="transcription">Аль-лязи́на</div>
-      <div class="meaning">«Тех,&nbsp;которые...» / «Тех,&nbsp;кого...»</div>
+      <div class="meaning">«Тех, которые...» / «Тех, кого...»</div>
     </header>
 
     <!-- Роль в предложении: Мост к разъяснению -->
     <section class="section-card">
-      <h2 class="section-title">🌉 Мост между путем и&nbsp;качествами людей</h2>
+      <h2 class="section-title">🌉 Мост между путем и качествами людей</h2>
       
       <div class="phrase-box">
         <div class="phrase-arabic">صِرَاطَ ٱلَّذِينَ أَنْعَمْتَ</div>
-        <div class="phrase-meaning">Путём <strong>тех,&nbsp;которых</strong> → Ты&nbsp;облагодетельствовал</div>
+        <div class="phrase-meaning">Путём <strong>тех, которых</strong> → Ты облагодетельствовал</div>
       </div>
 
       <div class="steps-list">
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            Слово <span class="arabic-inline">ٱلَّذِينَ</span> связывает слово «Путь» с&nbsp;описанием тех,&nbsp;кто&nbsp;по&nbsp;нему&nbsp;идёт. В&nbsp;арабском языке это&nbsp;относительное местоимение.
+            Слово <span class="arabic-inline">ٱلَّذِينَ</span> связывает слово «Путь» с описанием тех, кто по нему идёт. В арабском языке это относительное местоимение <br>(<em>исм мавсуль</em>).
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div class="step-content">
-            Оно&nbsp;отвечает на&nbsp;вопрос <em>«Путь кого?»</em>, завершая связку принадлежности&nbsp;(<strong>Идафы</strong>).
+            Оно отвечает на вопрос <em>«Путь кого?»</em>, завершая связку принадлежности (<strong>Идафы</strong>).
           </div>
         </div>
       </div>
@@ -399,12 +341,12 @@
 
     <!-- Почему на конце фатха? -->
     <section class="section-card">
-      <h2 class="section-title">❓ Почему на&nbsp;конце черточка сверху&nbsp;(фатха)?</h2>
+      <h2 class="section-title">❓ Почему на конце черточка сверху (фатха)?</h2>
       
       <div class="qa-box">
-        <div class="qa-question">Неизменяемое слово&nbsp;(Мабни):</div>
+        <div class="qa-question">Неизменяемое слово (Мабни):</div>
         <div class="qa-answer">
-          Казалось бы,&nbsp;отвечая на&nbsp;вопрос <em>«кого?»</em>, слово должно иметь кясру на&nbsp;конце. Но&nbsp;в&nbsp;арабском языке местоимения относятся к&nbsp;категории <strong>«застывших» слов</strong>&nbsp;(<em>мабни</em>). Их&nbsp;концовка никогда не&nbsp;склоняется по&nbsp;падежам. Форма множественного числа навсегда зафиксирована со&nbsp;звуком «а» на&nbsp;конце: <span class="nowrap"><em>«Аль-лязин<strong style="color: var(--primary);">а</strong>»</em></span>.
+          Казалось бы, отвечая на вопрос <em>«кого?»</em>, слово должно иметь кясру <br>на конце. Но в арабском языке местоимения относятся к категории <strong>«застывших» слов</strong> (<em>мабни</em>). Их концовка никогда не склоняется <br>по падежам. Форма множественного числа навсегда зафиксирована <br>со звуком «а» на конце: <span class="nowrap"><em>«Аль-лязин<strong style="color: var(--primary);">а</strong>»</em></span>.
         </div>
       </div>
     </section>
@@ -417,6 +359,5 @@
 
   </div>
 
-  
 </body>
 </html>

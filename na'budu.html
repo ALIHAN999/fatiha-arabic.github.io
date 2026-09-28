@@ -2,11 +2,10 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- Viewport-fit=cover для корректного отображения внутри мобильного клиента VK -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово نَعْبُدُ — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово نَعْبُدُ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic, Inter и Manrope -->
+  <!-- Шрифты: Noto Naskh Arabic и Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
@@ -43,13 +42,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      /* Безопасные отступы под системные панели и вырезы смартфона */
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -77,12 +71,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -117,8 +109,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -256,8 +246,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -280,7 +270,7 @@
       padding: 10px 12px;
       border-radius: 0 10px 10px 0;
       margin-bottom: 10px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
     .qa-question {
@@ -291,17 +281,34 @@
 
     .qa-answer {
       color: #334155;
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
-    /* Карточка подсказки */
+    /* Подсказки */
+    .phonetic-card {
+      background: var(--blue-bg);
+      border: 1px solid #bae6fd;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--blue-text);
+      margin-bottom: 14px;
+    }
+
+    .phonetic-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
     .tip-card {
       background: var(--accent-bg);
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -334,7 +341,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -342,47 +348,14 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-    
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero { font-size: 4.5rem; }
-      .transcription { font-size: 1.45rem; }
-      .meaning { font-size: 1.15rem; }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title { font-size: 1.2rem; }
-      .phrase-arabic { font-size: 2.3rem; }
-      .math-arabic { font-size: 2.2rem; height: 52px; }
-      .math-sign { font-size: 1.6rem; height: 52px; }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
   </style>
-
 </head>
 <body>
 
   <div class="container">
     
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
+      <a href="index.html" class="back-btn">← К суре</a>
       <span class="ayah-indicator">Аят 5 • Слово 2</span>
     </div>
 
@@ -390,17 +363,17 @@
     <header class="hero-card">
       <div class="arabic-hero">نَعْبُدُ</div>
       <div class="transcription">На‘буду</div>
-      <div class="meaning">«Мы&nbsp;поклоняемся» / «Служим»</div>
+      <div class="meaning">«Мы поклоняемся» / «Служим»</div>
     </header>
 
     <!-- Из чего состоит глагол -->
     <section class="section-card">
-      <h2 class="section-title">🔍 Из&nbsp;чего&nbsp;состоит глагол?</h2>
+      <h2 class="section-title">🔍 Из чего состоит глагол?</h2>
       
       <div class="math-formula">
         <div class="math-item">
           <div class="math-arabic" style="color: var(--part-prefix);">نَـ</div>
-          <div class="math-label">Мы&nbsp;(приставка)</div>
+          <div class="math-label">Мы (приставка)</div>
         </div>
         <div class="math-sign">+</div>
         <div class="math-item">
@@ -410,7 +383,7 @@
         <div class="math-sign">=</div>
         <div class="math-item">
           <div class="math-arabic" style="color: var(--primary);">نَعْبُدُ</div>
-          <div class="math-label">«Мы&nbsp;поклоняемся»</div>
+          <div class="math-label">«Мы поклоняемся»</div>
         </div>
       </div>
 
@@ -418,13 +391,13 @@
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            <span class="arabic-inline">نَـ</span>&nbsp;(На-) — приставка настоящего времени, обозначающая местоимение <strong>«мы»</strong>&nbsp;(1-е лицо множественного числа).
+            <span class="arabic-inline">نَـ</span> (На-) — приставка настоящего времени, обозначающая местоимение <strong>«мы»</strong> (1-е лицо множественного числа).
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div class="step-content">
-            Корень слова — <span class="arabic-inline">ع - ب - د</span>  Он&nbsp;выражает суть рабства перед Богом, искреннего смирения и&nbsp;поклонения&nbsp;(отсюда слово <em>«‘ибāда»</em>).
+            Корень слова — <span class="arabic-inline">ع - ب - د</span> <br>Он выражает суть рабства перед Богом, искреннего смирения <br>и поклонения <br>(отсюда слово <em>«‘ибāда»</em>).
           </div>
         </div>
       </div>
@@ -432,20 +405,20 @@
 
     <!-- Почему на конце дамма? -->
     <section class="section-card">
-      <h2 class="section-title">❓ Почему на&nbsp;конце запятая сверху&nbsp;(дамма)?</h2>
+      <h2 class="section-title">❓ Почему на конце запятая сверху (дамма)?</h2>
       
       <div class="qa-box">
         <div class="qa-question">Стандартная форма арабского глагола:</div>
         <div class="qa-answer">
-          В&nbsp;арабском языке глагол настоящего времени по&nbsp;умолчанию всегда имеет огласовку <strong>дамма&nbsp;( ـُ&nbsp;)</strong> на&nbsp;конце&nbsp;(статус <em>марфу‘</em>), если&nbsp;перед ним&nbsp;нет специальных частиц, требующих сукуна или&nbsp;фатхи: <span class="nowrap"><em>«На‘буд<strong style="color: var(--primary);">у</strong>»</em></span>.
+          В арабском языке глагол настоящего времени по умолчанию всегда имеет огласовку <strong>дамма ( ـُ )</strong> на конце <br>(статус <em>марфу‘</em>), если перед ним нет специальных частиц, требующих сукуна или фатхи: <span class="nowrap"><em>«На‘буд<strong style="color: var(--primary);">у</strong>»</em></span>.
         </div>
       </div>
     </section>
 
     <!-- Почему «мы», а не «я»? -->
     <div class="tip-card">
-      <strong>💡 Почему сказано «Мы&nbsp;поклоняемся»,  а&nbsp;не&nbsp;«Я&nbsp;поклоняюсь»?</strong>
-      Даже когда человек читает намаз в&nbsp;абсолютном одиночестве, он&nbsp;произносит <b>«мы»</b>. Это&nbsp;напоминает верующему, что&nbsp;он&nbsp;не&nbsp;одинок, а&nbsp;является частью огромной всемирной общины.  Кроме того,&nbsp;коллективная молитва покрывает несовершенство молитвы отдельного человека перед Творцом.
+      <strong>💡 Почему сказано «Мы поклоняемся», <br>а не «Я поклоняюсь»?</strong>
+      Даже когда человек читает намаз <br>в абсолютном одиночестве, он произносит <b>«мы»</b>. Это напоминает верующему, что он <br>не одинок, а является частью огромной всемирной общины. <br>Кроме того, коллективная молитва покрывает несовершенство молитвы отдельного человека перед Творцом.
     </div>
 
     <!-- Навигация между словами -->
@@ -456,6 +429,5 @@
 
   </div>
 
-  
 </body>
 </html>

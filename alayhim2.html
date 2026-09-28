@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово عَلَيْهِمْ&nbsp;(2) — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово عَلَيْهِمْ (2) — Простой разбор для начинающих</title>
 
   <!-- Шрифты: Noto Naskh Arabic и Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,12 +42,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -75,12 +71,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -115,8 +109,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -254,7 +246,6 @@
       font-weight: 700;
       color: var(--primary);
       margin-bottom: 4px;
-      margin-top: 4px;
     }
 
     .compare-desc {
@@ -295,8 +286,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -319,7 +310,7 @@
       padding: 10px 12px;
       border-radius: 0 10px 10px 0;
       margin-bottom: 10px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
     .qa-question {
@@ -330,7 +321,7 @@
 
     .qa-answer {
       color: #334155;
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
     /* Подсказки */
@@ -339,8 +330,8 @@
       border: 1px solid #bae6fd;
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--blue-text);
       margin-bottom: 14px;
     }
@@ -356,8 +347,8 @@
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -390,7 +381,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -398,60 +388,7 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero {
-        font-size: 4.5rem;
-      }
-      .transcription {
-        font-size: 1.45rem;
-      }
-      .meaning {
-        font-size: 1.15rem;
-      }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title {
-        font-size: 1.2rem;
-      }
-      .phrase-arabic {
-        font-size: 2.3rem;
-      }
-      .math-arabic {
-        font-size: 2.2rem;
-        height: 52px;
-      }
-      .math-sign {
-        font-size: 1.6rem;
-        height: 52px;
-      }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
-
-    #compare-id {
-      margin-top: 15px;
-    }
   </style>
-
 </head>
 <body>
 
@@ -459,7 +396,7 @@
     
     <!-- Навигация наверх -->
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
+      <a href="index.html" class="back-btn">← К суре</a>
       <span class="ayah-indicator">Аят 7 • Слово 7</span>
     </div>
 
@@ -467,12 +404,12 @@
     <header class="hero-card">
       <div class="arabic-hero">عَلَيْهِمْ</div>
       <div class="transcription">‘Аляйхим</div>
-      <div class="meaning">«На&nbsp;них» / «Над&nbsp;ними»</div>
+      <div class="meaning">«На них» / «Над ними»</div>
     </header>
 
     <!-- Из чего состоит слово -->
     <section class="section-card">
-      <h2 class="section-title">🔍 Из&nbsp;чего&nbsp;состоит связка?</h2>
+      <h2 class="section-title">🔍 Из чего состоит связка?</h2>
       
       <div class="math-formula">
         <div class="math-item">
@@ -487,7 +424,7 @@
         <div class="math-sign">=</div>
         <div class="math-item">
           <div class="math-arabic" style="color: var(--primary);">عَلَيْهِمْ</div>
-          <div class="math-label">«На&nbsp;них»</div>
+          <div class="math-label">«На них»</div>
         </div>
       </div>
 
@@ -495,13 +432,13 @@
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            <span class="arabic-inline">عَلَى</span> — предлог направления и&nbsp;возложения: <strong>«на / над»</strong>. Буква алиф максура&nbsp;(<span class="arabic-inline">ى</span>) раскрывается в&nbsp;звук «й» с&nbsp;сукуном: <span class="nowrap"><strong>«‘аляй-»</strong></span>.
+            <span class="arabic-inline">عَلَى</span> — предлог направления <br>и возложения: <strong>«на / над»</strong>. Буква алиф максура (<span class="arabic-inline">ى</span>) раскрывается <br>в звук «й» с сукуном: <span class="nowrap"><strong>«‘аляй-»</strong></span>.
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div class="step-content">
-            <span class="arabic-inline">هِمْ</span> — местоимение 3-го лица множественного числа&nbsp;(<strong>«них»</strong>).
+            <span class="arabic-inline">هِمْ</span> — местоимение 3-го лица множественного числа (<strong>«них»</strong>).
           </div>
         </div>
       </div>
@@ -509,19 +446,25 @@
 
     <!-- Два разных «عَلَيْهِمْ» в одном аяте -->
     <section class="section-card">
-      <h2 class="section-title">⚖️ Два слова عَلَيْهِمْ в&nbsp;одном аяте</h2>
+      <h2 class="section-title">⚖️ Два слова عَلَيْهِمْ в одном аяте</h2>
 
       <div class="compare-grid">
         <div class="compare-item">
-          <div class="compare-name" id="compare-id">أَنْعَمْتَ عَلَيْهِمْ</div>
-          <div class="compare-desc"><strong>Слово 4:</strong> милость Аллаха нисходит  <strong>на&nbsp;них</strong>&nbsp;(на&nbsp;праведных рабов).</div>
+          <div class="compare-name">أَنْعَمْتَ عَلَيْهِمْ</div>
+          <div class="compare-desc"><strong>Слово 4:</strong> милость Аллаха нисходит <br><strong>на них</strong> <br>(на праведных рабов).</div>
         </div>
         <div class="compare-item">
           <div class="compare-name">ٱلْمَغْضُوبِ عَلَيْهِمْ</div>
-          <div class="compare-desc"><strong>Слово 7:</strong> гнев  и&nbsp;возмездие обрушиваются  <strong>на&nbsp;них</strong>&nbsp;(на&nbsp;упорствующих).</div>
+          <div class="compare-desc"><strong>Слово 7:</strong> гнев <br>и возмездие обрушиваются <br><strong>на них</strong> <br>(на упорствующих).</div>
         </div>
       </div>
     </section>
+
+    <!-- Тонкость структуры аята -->
+    <div class="tip-card">
+      <strong>💡 Зачем повторяется местоимение?</strong>
+      Повторение слова связывает аят воедино <br>и проводит абсолютную грань между двумя противоположными судьбами в вечности: теми, <b>на кого</b> снизошла милость, и теми, <br><b>на кого</b> лёг заслуженный гнев.
+    </div>
 
     <!-- Навигация между словами -->
     <div class="nav-buttons">
@@ -531,6 +474,5 @@
 
   </div>
 
-  
 </body>
 </html>

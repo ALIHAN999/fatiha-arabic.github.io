@@ -2,13 +2,13 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- Viewport-fit=cover для корректного отображения внутри мобильного клиента VK -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово ٱلدِّينِ — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово ٱلدِّينِ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Manrope и Noto Naskh Arabic -->
+  <!-- Шрифты: Noto Naskh Arabic и Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -40,13 +40,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      /* Безопасные отступы под системные панели и вырезы смартфона */
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -74,12 +69,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -114,8 +107,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -201,8 +192,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -225,7 +216,7 @@
       padding: 10px 12px;
       border-radius: 0 10px 10px 0;
       margin-bottom: 10px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
     .qa-question {
@@ -236,32 +227,7 @@
 
     .qa-answer {
       color: #334155;
-      line-height: 1.6;
-    }
-
-    /* Карточки причин */
-    .reason-box {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 8px;
-    }
-
-    .reason-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .reason-text {
-      font-size: 0.85rem;
-      color: #334155;
-      line-height: 1.45;
+      line-height: 1.4;
     }
 
     /* Подсказки */
@@ -270,8 +236,8 @@
       border: 1px solid #bae6fd;
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--blue-text);
       margin-bottom: 14px;
     }
@@ -287,8 +253,8 @@
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -321,7 +287,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -329,40 +294,7 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-    
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero { font-size: 4.5rem; }
-      .transcription { font-size: 1.45rem; }
-      .meaning { font-size: 1.15rem; }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title { font-size: 1.2rem; }
-      .phrase-arabic { font-size: 2.3rem; }
-      .math-arabic { font-size: 2.2rem; height: 52px; }
-      .math-sign { font-size: 1.6rem; height: 52px; }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
   </style>
-
 </head>
 <body>
 
@@ -370,15 +302,15 @@
     
     <!-- Навигация наверх -->
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
-      <span class="ayah-indicator">Аят 4 • Слово 3&nbsp;(Конец аята)</span>
+      <a href="index.html" class="back-btn">← К суре</a>
+      <span class="ayah-indicator">Аят 4 • Слово 3 (Конец аята)</span>
     </div>
 
     <!-- Заглавный блок -->
     <header class="hero-card">
       <div class="arabic-hero">ٱلدِّينِ</div>
       <div class="transcription">Ад-Дӣни</div>
-      <div class="meaning">«Воздаяния» / «Суда и&nbsp;Расчёта»</div>
+      <div class="meaning">«Воздаяния» / «Суда и Расчёта»</div>
     </header>
 
     <!-- Роль в цепочке связок -->
@@ -387,20 +319,20 @@
       
       <div class="phrase-box">
         <div class="phrase-arabic">يَوْمِ ٱلدِّينِ</div>
-        <div class="phrase-meaning">День&nbsp;(чего?) → <strong>Воздаяния</strong></div>
+        <div class="phrase-meaning">День (чего?) → <strong>Воздаяния</strong></div>
       </div>
 
       <div class="steps-list">
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            Слово завершает конструкцию принадлежности&nbsp;(<strong>Идафа</strong>), отвечая на&nbsp;вопрос <em>«День чего?»</em>.
+            Слово завершает конструкцию принадлежности (<strong>Идафа</strong>), отвечая на вопрос <em>«День чего?»</em>.
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div class="step-content">
-            В&nbsp;отличие от&nbsp;предыдущих двух слов связки&nbsp;(<span class="arabic-inline">مَالِكِ</span> и&nbsp;<span class="arabic-inline">يَوْمِ</span>), здесь присутствует определённый артикль <span class="arabic-inline">ٱلـ</span>, так как&nbsp;речь идёт о&nbsp;конкретном, известном Дне полного расчёта.
+            В отличие от предыдущих двух слов связки, здесь присутствует определённый артикль <span class="arabic-inline">ٱلـ</span>, так как это конкретный, известный День полного расчёта.
           </div>
         </div>
       </div>
@@ -408,39 +340,20 @@
 
     <!-- Почему на конце кясра? -->
     <section class="section-card">
-      <h2 class="section-title">❓ Почему на&nbsp;конце черточка снизу&nbsp;(кясра)?</h2>
+      <h2 class="section-title">❓ Почему на конце черточка снизу (кясра)?</h2>
       
       <div class="qa-box">
-        <div class="qa-question">Правило зависимого слова в&nbsp;идафе:</div>
+        <div class="qa-question">Правило зависимого слова в идафе:</div>
         <div class="qa-answer">
-          Так как&nbsp;слово <span class="arabic-inline">ٱلدِّينِ</span> стоит вторым элементом в&nbsp;связке владения&nbsp;(<em>Мудаф илейхи</em> — отвечает на&nbsp;вопрос <em>«чего?»</em>), оно&nbsp;принимает падеж джарр с&nbsp;огласовкой <strong>кясра&nbsp;( ـِ&nbsp;)</strong>: <span class="nowrap"><em>«йавми-д-дӣн<strong style="color: var(--primary);">и</strong>»</em></span>.
-        </div>
-      </div>
-    </section>
-
-    <!-- Почему нет танвина? -->
-    <section class="section-card">
-      <h2 class="section-title">🚫 Почему нет танвина&nbsp;(-ин / -ун)?</h2>
-      
-      <div class="reason-box">
-        <div class="reason-header">Правило несовместимости с&nbsp;артиклем&nbsp;(الـ)</div>
-        <div class="reason-text">
-          Без&nbsp;артикля это&nbsp;существительное имеет полноценный танвин: <span class="arabic-inline">دِينٌ</span>&nbsp;(<em>дӣнун</em> — «какой-то&nbsp;долг/суд/религия»). Однако при&nbsp;добавлении артикля определённости <span class="arabic-inline">الـ</span> танвин <strong>всегда исчезает</strong>: пишется одна кясра <span class="arabic-inline">ٱلدِّينِ</span> вместо <span class="arabic-inline">دِينٍ</span>&nbsp;(<em>дӣнин</em>).
-        </div>
-      </div>
-
-      <div class="reason-box">
-        <div class="reason-header">Разница с&nbsp;первыми словами связки&nbsp;(малики / йавми)</div>
-        <div class="reason-text">
-          В&nbsp;словах <span class="arabic-inline">مَالِكِ</span> и&nbsp;<span class="arabic-inline">يَوْمِ</span> танвин отсутствовал из-за&nbsp;их&nbsp;роли первого слова в&nbsp;идафе&nbsp;(<em>Мудаф</em>). Слово же&nbsp;<span class="arabic-inline">ٱلدِّينِ</span> стоит в&nbsp;конце цепочки и&nbsp;могло бы&nbsp;иметь танвин, но&nbsp;его&nbsp;снимает <strong>определённый артикль <span class="arabic-inline">الـ</span></strong>, который&nbsp;делает всю конструкцию конкретной.
+          Так как слово <span class="arabic-inline">ٱلدِّينِ</span> стоит вторым элементом в связке владения (отвечает на вопрос <em>«чего?»</em>), оно принимает огласовку <strong>кясра ( ـِ )</strong>: <span class="nowrap"><em>«йавми-д-дӣн<strong style="color: var(--primary);">и</strong>»</em></span>.
         </div>
       </div>
     </section>
 
     <!-- Тонкость значения слова Дин -->
     <div class="tip-card">
-      <strong>💡 Что&nbsp;означает «Дин» в&nbsp;этом аяте?</strong>
-      Хотя в&nbsp;бытовой речи слово <em>«дин»</em> часто переводят как&nbsp;«религия», его&nbsp;коренное значение связано со&nbsp;словами «расчёт», «долг» и&nbsp;«воздаяние». <em>Йавм ад-Дин</em> — это&nbsp;День, когда каждый&nbsp;получит точное воздаяние за&nbsp;свои&nbsp;поступки по&nbsp;принципу: <em>«каков поступок — таков и&nbsp;расчёт»</em>.
+      <strong>💡 Что означает «Дин» в этом аяте?</strong>
+      Хотя в бытовой речи слово <em>«дин»</em> часто переводят как «религия», его коренное значение связано со словами «расчёт», «долг» и «воздаяние». <em>Йавм ад-Дин</em> — это День, когда каждый получит точное воздаяние за свои поступки по принципу: <em>«каков поступок — таков и расчёт»</em>.
     </div>
 
     <!-- Навигация между словами -->
@@ -451,6 +364,5 @@
 
   </div>
 
-  
 </body>
 </html>

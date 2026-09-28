@@ -2,11 +2,10 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- Viewport-fit=cover для корректного отображения внутри мобильного клиента VK -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово وَإِيَّاكَ — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово وَإِيَّاكَ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic, Inter и Manrope -->
+  <!-- Шрифты: Noto Naskh Arabic и Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
@@ -43,13 +42,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      /* Безопасные отступы под системные панели и вырезы смартфона */
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -77,12 +71,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -117,8 +109,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -256,8 +246,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -280,7 +270,7 @@
       padding: 10px 12px;
       border-radius: 0 10px 10px 0;
       margin-bottom: 10px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
     .qa-question {
@@ -291,17 +281,34 @@
 
     .qa-answer {
       color: #334155;
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
-    /* Карточка подсказки */
+    /* Подсказки */
+    .phonetic-card {
+      background: var(--blue-bg);
+      border: 1px solid #bae6fd;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--blue-text);
+      margin-bottom: 14px;
+    }
+
+    .phonetic-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
     .tip-card {
       background: var(--accent-bg);
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -334,7 +341,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -342,47 +348,14 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-    
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero { font-size: 4.5rem; }
-      .transcription { font-size: 1.45rem; }
-      .meaning { font-size: 1.15rem; }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title { font-size: 1.2rem; }
-      .phrase-arabic { font-size: 2.3rem; }
-      .math-arabic { font-size: 2.2rem; height: 52px; }
-      .math-sign { font-size: 1.6rem; height: 52px; }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
   </style>
-
 </head>
 <body>
 
   <div class="container">
     
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
+      <a href="index.html" class="back-btn">← К суре</a>
       <span class="ayah-indicator">Аят 5 • Слово 3</span>
     </div>
 
@@ -390,12 +363,12 @@
     <header class="hero-card">
       <div class="arabic-hero">وَإِيَّاكَ</div>
       <div class="transcription">Ва-иййа́ка</div>
-      <div class="meaning">«И&nbsp;лишь Тебя&nbsp;одного»</div>
+      <div class="meaning">«И лишь Тебя одного»</div>
     </header>
 
     <!-- Из чего состоит слово -->
     <section class="section-card">
-      <h2 class="section-title">🔍 Из&nbsp;чего&nbsp;состоит слово?</h2>
+      <h2 class="section-title">🔍 Из чего состоит слово?</h2>
       
       <div class="math-formula">
         <div class="math-item">
@@ -410,7 +383,7 @@
         <div class="math-sign">=</div>
         <div class="math-item">
           <div class="math-arabic" style="color: var(--primary);">وَإِيَّاكَ</div>
-          <div class="math-label">«И&nbsp;лишь Тебя»</div>
+          <div class="math-label">«И лишь Тебя»</div>
         </div>
       </div>
 
@@ -418,13 +391,13 @@
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            <span class="arabic-inline">وَ</span>&nbsp;(Ва) — соединительный союз <strong>«и»</strong>&nbsp;(<em>харф аль-‘атф</em>). В&nbsp;арабском письме он&nbsp;всегда пишется слитно с&nbsp;тем&nbsp;словом, перед которым&nbsp;стоит.
+            <span class="arabic-inline">وَ</span> (Ва) — соединительный союз <strong>«и»</strong> (<em>харф аль-‘атф</em>). В арабском письме он всегда пишется слитно с тем словом, перед которым стоит.
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div class="step-content">
-            <span class="arabic-inline">إِيَّاكَ</span>&nbsp;(Иййа́ка) — знакомое нам&nbsp;местоимение исключительности: <strong>«только Тебя&nbsp;одного»</strong>.
+            <span class="arabic-inline">إِيَّاكَ</span> (Иййа́ка) — знакомое нам местоимение исключительности: <strong>«только Тебя одного»</strong>.
           </div>
         </div>
       </div>
@@ -436,21 +409,21 @@
       
       <div class="phrase-box">
         <div class="phrase-arabic">وَإِيَّاكَ نَسْتَعِينُ</div>
-        <div class="phrase-meaning">и&nbsp;лишь Тебя&nbsp;одного → <strong>молим о&nbsp;помощи</strong></div>
+        <div class="phrase-meaning">и лишь Тебя одного → <strong>молим о помощи</strong></div>
       </div>
 
       <div class="qa-box">
         <div class="qa-question">Почему слово повторено второй раз?</div>
         <div class="qa-answer">
-          Можно было сказать короче: <em>«Лишь Тебе&nbsp;поклоняемся и&nbsp;просим помощи»</em>. Но&nbsp;Коран повторяет слово <span class="arabic-inline">إِيَّاكَ</span> второй раз, чтобы&nbsp;закрепить абсолютное единобожие в&nbsp;обоих действиях: как&nbsp;поклонение принадлежит <strong>только Ему</strong>,&nbsp;так и&nbsp;подлинная надежда на&nbsp;спасительную помощь обращена <strong>только к&nbsp;Нему</strong>.
+          Можно было сказать короче: <em>«Лишь Тебе поклоняемся и просим помощи»</em>. Но Коран повторяет слово <span class="arabic-inline">إِيَّاكَ</span> второй раз, чтобы закрепить абсолютное единобожие в обоих действиях: как поклонение принадлежит <strong>только Ему</strong>, так и подлинная надежда <br>на спасительную помощь обращена <strong>только к Нему</strong>.
         </div>
       </div>
     </section>
 
     <!-- Тонкость расположения слов в аяте -->
     <div class="tip-card">
-      <strong>💡 Почему сначала поклонение, а&nbsp;потом просьба о&nbsp;помощи?</strong>
-      В 5-м аяте соблюдён идеальный порядок: сначала раб исполняет свою обязанность перед Создателем&nbsp;(поклонение: <span class="arabic-inline">نَعْبُدُ</span>), и&nbsp;только затем просит о&nbsp;поддержке в&nbsp;своих делах&nbsp;(помощь: <span class="arabic-inline">نَسْتَعِينُ</span>). Поклонение — это&nbsp;средство заслужить помощь Господа.
+      <strong>💡 Почему сначала поклонение, а потом просьба о помощи?</strong>
+      В 5-м аяте соблюдён идеальный порядок: сначала раб исполняет свою обязанность перед Создателем (поклонение: <span class="arabic-inline">نَعْبُدُ</span>), <br>и только затем просит о поддержке в своих делах (помощь: <span class="arabic-inline">نَسْتَعِينُ</span>). Поклонение — это средство заслужить помощь Господа.
     </div>
 
     <!-- Навигация между словами -->
@@ -461,6 +434,5 @@
 
   </div>
 
-  
 </body>
 </html>

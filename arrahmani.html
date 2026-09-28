@@ -2,13 +2,13 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- Viewport-fit=cover для корректных отступов внутри мобильного клиента VK -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово ٱلرَّحْمَانِ — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово ٱلرَّحْمَانِ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Manrope и Noto Naskh Arabic -->
+  <!-- Шрифты: Noto Naskh Arabic и Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
   
   <style>
@@ -25,8 +25,6 @@
       --accent-text: #92400e;
       --blue-bg: #e0f2fe;
       --blue-text: #0369a1;
-      --green-bg: #f0fdf4;
-      --green-text: #166534;
     }
 
     * {
@@ -40,13 +38,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      /* Безопасные отступы под вырезы дисплея и нижнюю панель навигации VK */
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -74,12 +67,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -114,8 +105,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -201,8 +190,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -225,7 +214,7 @@
       padding: 10px 12px;
       border-radius: 0 10px 10px 0;
       margin-bottom: 10px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
     .qa-question {
@@ -236,42 +225,35 @@
 
     .qa-answer {
       color: #334155;
-      line-height: 1.6;
-    }
-
-    /* Карточки причин */
-    .reason-box {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 8px;
-    }
-
-    .reason-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .reason-text {
-      font-size: 0.85rem;
-      color: #334155;
       line-height: 1.4;
     }
 
-    /* Подсказки */
+    /* Фонетическая карточка */
+    .phonetic-card {
+      background: var(--blue-bg);
+      border: 1px solid #bae6fd;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--blue-text);
+      margin-bottom: 14px;
+    }
+
+    .phonetic-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    /* Карточка-секрет */
     .tip-card {
       background: var(--accent-bg);
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -304,7 +286,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -312,38 +293,7 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-    
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero { font-size: 4.5rem; }
-      .transcription { font-size: 1.45rem; }
-      .meaning { font-size: 1.15rem; }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title { font-size: 1.2rem; }
-      .phrase-arabic { font-size: 2.3rem; }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
   </style>
-
 </head>
 <body>
 
@@ -351,37 +301,37 @@
     
     <!-- Навигация наверх -->
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
+      <a href="index.html" class="back-btn">← К суре</a>
       <span class="ayah-indicator">Аят 1 • Слово 3</span>
     </div>
 
     <!-- Заглавный блок -->
     <header class="hero-card">
       <div class="arabic-hero">ٱلرَّحْمَانِ</div>
-      <div class="transcription">Ар-Рахма̄ни</div>
-      <div class="meaning">«Милостивого»&nbsp;(Всемилостивого)</div>
+      <div class="transcription">Ар-Рахма́ни</div>
+      <div class="meaning">«Милостивого» (Всемилостивого)</div>
     </header>
 
     <!-- Роль слова: Описание -->
     <section class="section-card">
-      <h2 class="section-title">✨ Какова роль этого&nbsp;слова?</h2>
+      <h2 class="section-title">✨ Какова роль этого слова?</h2>
       
       <div class="phrase-box">
         <div class="phrase-arabic">ٱللَّهِ ٱلرَّحْمَانِ</div>
-        <div class="phrase-meaning">Аллаха&nbsp;(какого?) → <strong>Милостивого</strong></div>
+        <div class="phrase-meaning">Аллаха (какого?) → <strong>Милостивого</strong></div>
       </div>
 
       <div class="steps-list">
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            Это&nbsp;слово выступает в&nbsp;роли описания&nbsp;(в&nbsp;арабском языке — <strong>Сыфат</strong> / определение). Оно&nbsp;описывает предшествующее слово — <span class="arabic-inline">ٱللَّهِ</span>.
+            Это слово выступает в роли описания (в арабском языке — <strong>Сыфат</strong> / определение). Оно описывает предшествующее <br>слово — <span class="arabic-inline">ٱللَّهِ</span>.
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div class="step-content">
-            В&nbsp;арабском языке описание работает как&nbsp;зеркало: оно&nbsp;<strong>полностью копирует</strong> свойства главного слова&nbsp;(определенность артиклем <span class="arabic-inline">الـ</span> и&nbsp;падеж).
+            В арабском языке описание работает как зеркало: оно <strong>полностью копирует</strong> свойства главного слова (определенность артиклем <span class="arabic-inline">الـ</span> и падеж).
           </div>
         </div>
       </div>
@@ -389,40 +339,21 @@
 
     <!-- Почему кясра на конце? -->
     <section class="section-card">
-      <h2 class="section-title">❓ Почему на&nbsp;конце черточка снизу&nbsp;(кясра)?</h2>
+      <h2 class="section-title">❓ Почему на конце черточка снизу (кясра)?</h2>
       
       <div class="qa-box">
         <div class="qa-question">Правило повторения падежа:</div>
         <div class="qa-answer">
-          Раз слово <span class="arabic-inline">ٱللَّهِ</span> оканчивалось на&nbsp;кясру&nbsp;(<em>-Лля̄х<span class="nowrap" style="color: var(--primary); font-weight: 700;">и</span></em>), то&nbsp;и&nbsp;описывающее его&nbsp;слово <span class="arabic-inline">ٱلرَّحْمَانِ</span> также принимает кясру на&nbsp;конце: <span class="nowrap"><em>«Ар-Рахма̄н<strong style="color: var(--primary);">и</strong>»</em></span>.
-        </div>
-      </div>
-    </section>
-
-    <!-- Почему нет танвина? -->
-    <section class="section-card">
-      <h2 class="section-title">🚫 Почему нет танвина&nbsp;(-ин / -ун)?</h2>
-      
-      <div class="reason-box">
-        <div class="reason-header">Причина 1 • Определённый артикль&nbsp;(الـ)</div>
-        <div class="reason-text">
-          Слово начинается с&nbsp;артикля определённости <span class="arabic-inline">الـ</span>&nbsp;(<em>«аль-»</em>). В&nbsp;арабском языке действует фундаментальное правило: <strong>артикль <span class="arabic-inline">الـ</span> и&nbsp;танвин никогда не&nbsp;встречаются в&nbsp;одном слове</strong>. Появление артикля сразу сбрасывает танвин до&nbsp;простой одинарной огласовки.
-        </div>
-      </div>
-
-      <div class="reason-box">
-        <div class="reason-header">Причина 2 • Особая форма слова&nbsp;(Мамну‘ мин ас-сарф)</div>
-        <div class="reason-text">
-          Имя <span class="arabic-inline">رَحْمَان</span> образовано по&nbsp;словообразовательной модели <span class="arabic-inline">فَعْلَان</span>&nbsp;(<em>фа‘ля̄н</em>). Имена с&nbsp;таким окончанием относятся к&nbsp;категории частично склоняемых&nbsp;(<em>диптоты</em>) — они&nbsp;<strong>в&nbsp;принципе не&nbsp;принимают танвин</strong>, даже если&nbsp;употребляются без&nbsp;артикля&nbsp;(произносится <em>«Рахма̄ну»</em>, а&nbsp;не&nbsp;<em>«Рахма̄нун»</em>).
+          Раз слово <span class="arabic-inline">ٱللَّهِ</span> оканчивалось на кясру<br> (<em>-Ллях<span class="nowrap" style="color: var(--primary); font-weight: 700;">и</span></em>), то и описывающее его слово <span class="arabic-inline">ٱلرَّحْمَانِ</span> также принимает кясру <br>на конце: <span class="nowrap"><em>«Ар-Рахмāн<strong style="color: var(--primary);">и</strong>»</em></span>.
         </div>
       </div>
     </section>
 
     <!-- Тонкость написания алифа и значение -->
     <div class="tip-card">
-      <strong>💡 Написание и&nbsp;значение формы слова:</strong>
-      Буква <span class="arabic-inline">ا</span>&nbsp;(Алиф) после буквы мим показывает долгий звук: <b>«Ар-Рахма́н»</b>.  В&nbsp;старинном кораническом письме этот&nbsp;алиф писался маленьким надстрочным знаком&nbsp;(<span class="arabic-inline">ٱلرَّحْمَٰنِ</span>), а&nbsp;в&nbsp;стандартном современном письме пишется привычной буквой <span class="arabic-inline">ا</span>.  
-      Сама&nbsp;модель этого&nbsp;слова означает предельную полноту: <b>Ар-Рахма́н</b> — это&nbsp;Тот,&nbsp;Чья&nbsp;милость безгранична и&nbsp;охватывает абсолютно весь&nbsp;сотворённый мир.
+      <strong>💡 Написание и значение формы слова:</strong>
+      Буква <span class="arabic-inline">ا</span> (Алиф) после буквы мим показывает долгий звук: <b>«Ар-Рахма́н»</b>. <br>В старинном кораническом письме этот алиф писался маленьким надстрочным знаком (<span class="arabic-inline">ٱلرَّحْمَٰنِ</span>), а в стандартном современном письме пишется привычной буквой <span class="arabic-inline">ا</span>.<br><br>
+      Сама модель этого слова означает предельную полноту: <b>Ар-Рахма́н</b> — это Тот, Чья милость безгранична и охватывает абсолютно весь сотворённый мир.
     </div>
 
     <!-- Навигация между словами -->
@@ -433,6 +364,5 @@
 
   </div>
 
-  
 </body>
 </html>

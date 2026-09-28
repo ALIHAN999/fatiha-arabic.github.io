@@ -2,11 +2,10 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- Viewport-fit=cover для корректного отображения внутри мобильного клиента VK -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово ٱلْعَالَمِينَ — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово ٱلْعَالَمِينَ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic, Inter и Manrope -->
+  <!-- Шрифты: Noto Naskh Arabic и Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
@@ -41,13 +40,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      /* Безопасные отступы под системные панели и вырезы смартфона */
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -75,12 +69,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -114,8 +106,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -198,8 +188,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -221,7 +211,7 @@
       padding: 10px 12px;
       border-radius: 0 10px 10px 0;
       margin-bottom: 10px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
     .qa-question {
@@ -232,7 +222,7 @@
 
     .qa-answer {
       color: #334155;
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
     .compare-grid {
@@ -270,8 +260,8 @@
       border: 1px solid #bae6fd;
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--blue-text);
       margin-bottom: 14px;
     }
@@ -287,8 +277,8 @@
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -320,7 +310,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -328,40 +317,7 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-    
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero { font-size: 4.5rem; }
-      .transcription { font-size: 1.45rem; }
-      .meaning { font-size: 1.15rem; }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title { font-size: 1.2rem; }
-      .phrase-arabic { font-size: 2.3rem; }
-      .math-arabic { font-size: 2.2rem; height: 52px; }
-      .math-sign { font-size: 1.6rem; height: 52px; }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
   </style>
-
 </head>
 <body>
 
@@ -369,8 +325,8 @@
     
     <!-- Навигация наверх -->
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
-      <span class="ayah-indicator">Аят 2 • Слово 4&nbsp;(Конец аята)</span>
+      <a href="index.html" class="back-btn">← К суре</a>
+      <span class="ayah-indicator">Аят 2 • Слово 4 (Конец аята)</span>
     </div>
 
     <!-- Заглавный блок -->
@@ -386,46 +342,46 @@
       
       <div class="phrase-box">
         <div class="phrase-arabic">رَبِّ ٱلْعَالَمِينَ</div>
-        <div class="phrase-meaning">Господу&nbsp;(чего?) → <strong>миров</strong></div>
+        <div class="phrase-meaning">Господу (чего?) → <strong>миров</strong></div>
       </div>
 
       <div class="steps-list">
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            Слово завершает связку <strong>Идафы</strong>, отвечая на&nbsp;вопрос <em>«чего?»</em>.  В&nbsp;русском языке это&nbsp;родительный падеж: <em>«Господь миров»</em>.
+            Слово завершает связку <strong>Идафы</strong>, отвечая на вопрос <em>«чего?»</em>. <br>В русском языке это родительный падеж: <em>«Господь миров»</em>.
           </div>
         </div>
-      </div>
+        
     </section>
 
     <!-- Секрет падежа во множественном числе -->
     <section class="section-card">
-      <h2 class="section-title">❓ Почему на&nbsp;конце нет кясры?</h2>
+      <h2 class="section-title">❓ Почему на конце нет кясры?</h2>
       
       <div class="qa-box">
-        <div class="qa-question">Как&nbsp;меняются окончания  во&nbsp;множественном числе:</div>
+        <div class="qa-question">Как меняются окончания <br>во множественном числе:</div>
         <div class="qa-answer">
-          В&nbsp;единственном числе родительный падеж обозначается кясрой&nbsp;( ـِ&nbsp;).  Но&nbsp;во&nbsp;множественном числе мужского рода роль кясры берет на&nbsp;себя&nbsp;буква <strong>Йа&nbsp;(ي)</strong>: окончание меняется с&nbsp;<em>«-ӯна»</em>  на&nbsp;<strong>«-ӣна»</strong>. Поэтому пишется  не&nbsp;<span class="arabic-inline">عَالَمُونَ</span>, а&nbsp;<span class="arabic-inline"><strong>عَالَمِينَ</strong></span>.
+          В единственном числе родительный падеж обозначается кясрой ( ـِ ). <br>Но во множественном числе мужского рода роль кясры берет на себя буква <strong>Йа (ي)</strong>: окончание меняется с <em>«-ӯна»</em> <br>на <strong>«-ӣна»</strong>. Поэтому пишется<br> не <span class="arabic-inline">عَالَمُونَ</span>, а <span class="arabic-inline"><strong>عَالَمِينَ</strong></span>.
         </div>
       </div>
 
       <div class="compare-grid">
         <div class="compare-item">
           <div class="compare-name">عَالَمُونَ</div>
-          <div class="compare-desc"><strong>Исходная форма:</strong> окончание <em>-ӯна</em>&nbsp;(именительный падеж, «миры»).</div>
+          <div class="compare-desc"><strong>Исходная форма:</strong> окончание <em>-ӯна</em> (именительный падеж, «миры»).</div>
         </div>
         <div class="compare-item">
           <div class="compare-name">عَالَمِينَ</div>
-          <div class="compare-desc"><strong>В&nbsp;связке владения:</strong> окончание <em>-ӣна</em> через букву Йа&nbsp;(«миров»).</div>
+          <div class="compare-desc"><strong>В связке владения:</strong> окончание <em>-ӣна</em> через букву Йа («миров»).</div>
         </div>
       </div>
     </section>
 
     <!-- Тонкость корня -->
     <div class="tip-card">
-      <strong>💡 Что&nbsp;означает слово «‘āлям»?</strong>
-      Слово происходит от&nbsp;корня <span class="arabic-inline">ع - ل - م</span>, связанного со&nbsp;значением «знак, знамение».  Каждый&nbsp;сотворенный мир&nbsp;(мир людей, мир ангелов, мир растений, космос) служит знамением, указывающим на&nbsp;Мудрость Создателя.
+      <strong>💡 Что означает слово «‘āлям»?</strong>
+      Слово происходит от корня <span class="arabic-inline">ع - ل - م</span>, связанного со значением «знак, знамение». <br>Каждый сотворенный мир (мир людей, мир ангелов, мир растений, космос) служит знамением, указывающим на Мудрость Создателя.
     </div>
 
     <!-- Навигация между словами -->
@@ -436,6 +392,5 @@
 
   </div>
 
-  
 </body>
 </html>

@@ -2,11 +2,10 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- Добавлен viewport-fit=cover для корректного отображения внутри мобильного клиента VK -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Слово ٱللَّهِ — Простой разбор для&nbsp;начинающих</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слово ٱللَّهِ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic, Inter и Manrope -->
+  <!-- Шрифты: Noto Naskh Arabic и Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
@@ -41,13 +40,8 @@
       font-family: 'Manrope', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
-      /* Безопасные отступы под системные панели и «челку» смартфона */
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
 
     .container {
@@ -75,12 +69,10 @@
       border-radius: 8px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
     .back-btn:active {
       background: var(--primary-light);
-      transform: scale(0.97);
     }
 
     .ayah-indicator {
@@ -115,8 +107,6 @@
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
     }
 
     .meaning {
@@ -202,8 +192,8 @@
     }
 
     .step-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
     .arabic-inline {
@@ -222,7 +212,7 @@
       padding: 10px 12px;
       border-radius: 0 10px 10px 0;
       margin-bottom: 10px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
     .qa-question {
@@ -233,7 +223,7 @@
 
     .qa-answer {
       color: #334155;
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
     /* Карточка правила произношения (синяя) */
@@ -242,8 +232,8 @@
       border: 1px solid #bae6fd;
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--blue-text);
       margin-bottom: 14px;
     }
@@ -260,8 +250,8 @@
       border: 1px solid var(--accent-border);
       border-radius: 14px;
       padding: 14px;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.45;
       color: var(--accent-text);
       margin-bottom: 16px;
     }
@@ -294,7 +284,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, background-color 0.15s ease;
     }
 
     .nav-link.active {
@@ -302,40 +291,8 @@
       color: #ffffff;
       border-color: var(--primary);
     }
-
-    .nav-link:active {
-      transform: scale(0.97);
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
-      }
-      .hero-card {
-        padding: 36px 32px;
-        border-radius: 24px;
-        margin-bottom: 24px;
-      }
-      .arabic-hero { font-size: 4.5rem; }
-      .transcription { font-size: 1.45rem; }
-      .meaning { font-size: 1.15rem; }
-      .section-card {
-        padding: 24px 22px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-      .section-title { font-size: 1.2rem; }
-      .phrase-arabic { font-size: 2.3rem; }
-      .math-arabic { font-size: 2.2rem; height: 52px; }
-      .math-sign { font-size: 1.6rem; height: 52px; }
-      .nav-link:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
-      }
-    }
+    
   </style>
-
 </head>
 <body>
 
@@ -343,7 +300,7 @@
     
     <!-- Навигация наверх -->
     <div class="top-nav">
-      <a href="index.html" class="back-btn">← К&nbsp;суре</a>
+      <a href="index.html" class="back-btn">← К суре</a>
       <span class="ayah-indicator">Аят 1 • Слово 2</span>
     </div>
 
@@ -351,29 +308,29 @@
     <header class="hero-card">
       <div class="arabic-hero">ٱللَّهِ</div>
       <div class="transcription">Лля́хи</div>
-      <div class="meaning">«Аллаха»&nbsp;(Единого Бога)</div>
+      <div class="meaning">«Аллаха» (Единого Бога)</div>
     </header>
 
     <!-- Роль слова в предложении -->
     <section class="section-card">
-      <h2 class="section-title">🔗 Как&nbsp;слово соединено  с&nbsp;предыдущим?</h2>
+      <h2 class="section-title">🔗 Как слово соединено <br>с предыдущим?</h2>
       
       <div class="phrase-box">
         <div class="phrase-arabic">بِسْمِ ٱللَّهِ</div>
-        <div class="phrase-meaning">Имя&nbsp;(кого?) → <strong>Аллаха</strong></div>
+        <div class="phrase-meaning">Имя (кого?) → <strong>Аллаха</strong></div>
       </div>
 
       <div class="steps-list">
         <div class="step-item">
           <div class="step-badge">1</div>
           <div class="step-content">
-            Это&nbsp;конструкция принадлежности&nbsp;(в&nbsp;арабском она&nbsp;называется <strong>«Ида́фа»</strong>). В&nbsp;русском языке для&nbsp;этого&nbsp;мы&nbsp;ставим второе слово  в&nbsp;родительный падеж:  <em>«книга&nbsp;(кого?) учителя»</em>,  <em>«имя&nbsp;(кого?) Аллаха»</em>.
+            Это конструкция принадлежности (в арабском она называется <strong>«Ида́фа»</strong>). В русском языке для этого мы ставим второе слово <br>в родительный падеж: <br><em>«книга (кого?) учителя»</em>, <br><em>«имя (кого?) Аллаха»</em>.
           </div>
         </div>
         <div class="step-item">
           <div class="step-badge">2</div>
           <div class="step-content">
-            Слово <span class="arabic-inline">ٱللَّهِ</span> указывает на&nbsp;того,&nbsp;<strong>кому&nbsp;принадлежит имя</strong>.
+            Слово <span class="arabic-inline">ٱللَّهِ</span> указывает на того, <strong>кому принадлежит имя</strong>.
           </div>
         </div>
       </div>
@@ -381,30 +338,29 @@
 
     <!-- Почему кясра на конце? -->
     <section class="section-card">
-      <h2 class="section-title">❓ Почему на&nbsp;конце черточка снизу&nbsp;(кясра)?</h2>
+      <h2 class="section-title">❓ Почему на конце черточка снизу (кясра)?</h2>
       
       <div class="qa-box">
         <div class="qa-question">Золотое правило связки двух имен:</div>
         <div class="qa-answer">
-          В&nbsp;арабском языке второе слово  в&nbsp;цепочке владения&nbsp;(отвечающее  на&nbsp;вопрос <em>«кого? / чего?»</em>) <strong>всегда</strong> получает огласовку <strong>кясра&nbsp;( ـِ&nbsp;)</strong>. Поэтому мы&nbsp;произносим «Бисми-Лля́х<span style="color: var(--primary); font-weight: 700;">и</span>»,  а&nbsp;не&nbsp;«-Лля́ху» или&nbsp;«-Лля́ха».
+          В арабском языке второе слово <br>в цепочке владения (отвечающее <br>на вопрос <em>«кого? / чего?»</em>) <strong>всегда</strong> получает огласовку <strong>кясра ( ـِ )</strong>. Поэтому мы произносим «Бисми-Лля́х<span style="color: var(--primary); font-weight: 700;">и</span>», <br>а не «-Лля́ху» или «-Лля́ха».
         </div>
       </div>
     </section>
 
     <!-- Куда делся первый звук 'А'? -->
     <div class="tip-card">
-      <strong>💡 Почему не&nbsp;читается первый Алиф&nbsp;(ٱ)?</strong>
-      Над&nbsp;первым алифом стоит значок соединительной хамзы&nbsp;(маленькая буква сад: <span class="arabic-inline">ٱ</span>). Это&nbsp;сигнал для&nbsp;чтения: если&nbsp;мы&nbsp;читаем без&nbsp;остановки, этот&nbsp;звук «проглатывается», переходя от&nbsp;предыдущего слова сразу к&nbsp;букве «Л»:  <em>«бисми...»</em>  + <em>«...лля́хи»</em> = <b>«бисмилля́хи».</b>
+      <strong>💡 Почему не читается первый Алиф (ٱ)?</strong>
+      Над первым алифом стоит значок соединительной хамзы (маленькая буква сад: <span class="arabic-inline">ٱ</span>). Это сигнал для чтения: если мы читаем без остановки, этот звук «проглатывается», переходя от предыдущего слова сразу к букве «Л»: <br><em>«бисми...»</em>  + <em>«...лля́хи»</em> = <b>«бисмилля́хи».</b>
     </div>
 
     <!-- Навигация между словами -->
     <div class="nav-buttons">
       <a href="bismi.html" class="nav-link">← 1. بِسْمِ</a>
-      <a href="arrahmani.html" class="nav-link active">3. ٱلرَّحْمَانِ →</a>
+      <a href="arrahmani.html" class="nav-link active">3. ٱلرَّحْمَٰنِ →</a>
     </div>
 
   </div>
 
-  
 </body>
 </html>
