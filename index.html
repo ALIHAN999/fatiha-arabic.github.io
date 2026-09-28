@@ -1,396 +1,424 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <!-- Добавлен viewport-fit=cover для корректного отображения внутри мобильного клиента VK -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover">
-  <title>Сура «Аль-Фатиха» — Пословный разбор слов</title>
-  
-  <!-- Шрифты: Noto Naskh Arabic, Inter и Manrope -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no, viewport-fit=cover"
+    />
+    <title>Сура «Аль-Фатиха» — Пословный разбор слов</title>
 
-  <style>
-    :root {
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --primary: #0f766e;
-      --primary-light: #ccfbf1;
-      --border-color: #e2e8f0;
-      --ayah-num: #0d9488;
-    }
+    <!-- Шрифты: Noto Naskh Arabic, Inter и Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
+    <style>
+      :root {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0f766e;
+        --primary-light: #ccfbf1;
+        --border-color: #e2e8f0;
+        --ayah-num: #0d9488;
+      }
 
-    body {
-      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.5;
-      /* Отступы Safe Area: защищают от наложения шапки VK и панели жестов смартфона */
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px));
-      padding-left: env(safe-area-inset-left, 0px);
-      padding-right: env(safe-area-inset-right, 0px);
-      min-height: 100vh;
-    }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
 
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 16px;
-    }
+      body {
+        font-family:
+          'Manrope',
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        line-height: 1.5;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px));
+        padding-left: env(safe-area-inset-left, 0px);
+        padding-right: env(safe-area-inset-right, 0px);
+        min-height: 100vh;
+      }
 
-    header {
-      text-align: center;
-      margin-bottom: 24px;
-      padding-top: 8px;
-    }
+      .container {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 16px;
+      }
 
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      background-color: var(--primary-light);
-      color: var(--primary);
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-    }
+      header {
+        text-align: center;
+        margin-bottom: 24px;
+        padding-top: 8px;
+      }
 
-    h1 {
-      font-size: 1.55rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text-main);
-    }
-
-    .subtitle {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    .surah-container {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .ayah-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 18px 16px 14px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-    }
-
-    .ayah-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .ayah-badge {
-      font-size: 0.75rem;
-      background: #f1f5f9;
-      color: var(--primary);
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
-
-    /* Арабский блок */
-    .arabic-text {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-weight: 500;
-      font-size: 1.75rem;
-      line-height: 2.45;
-      text-align: right;
-      word-spacing: 6px;
-    }
-
-    .word-link {
-      display: inline-block;
-      color: var(--text-main);
-      text-decoration: none;
-      padding: 2px 7px;
-      margin: 1px 0;
-      border-radius: 8px;
-      transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
-      cursor: pointer;
-    }
-
-    .word-link:active {
-      transform: scale(0.95);
-      background-color: var(--primary);
-      color: #ffffff;
-    }
-
-    @media (hover: hover) {
-      .word-link:hover {
+      .badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
         background-color: var(--primary-light);
         color: var(--primary);
+        padding: 4px 10px;
+        border-radius: 999px;
+        margin-bottom: 10px;
       }
-    }
 
-    .ayah-end {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      color: var(--ayah-num);
-      margin-right: 6px;
-      user-select: none;
-    }
-
-    .translation {
-      margin-top: 12px;
-      padding-top: 10px;
-      border-top: 1px dashed var(--border-color);
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    .transcription {
-      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-      font-feature-settings: "liga" 1, "calt" 1;
-      text-rendering: optimizeLegibility;
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        max-width: 780px;
-        padding: 32px 24px 60px;
+      h1 {
+        font-size: 1.55rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--text-main);
       }
-      .arabic-hero { font-size: 4.5rem; }
-      .transcription { font-size: 1.45rem; }
-      .meaning { font-size: 1.15rem; }
-    }
-  </style>
 
-  <!-- Подключение официального VK Bridge через CDN -->
-  <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-</head>
-<body>
-
-  <div class="container">
-    <header>
-      <span class="badge">Сура 1</span>
-      <h1>Сура «Аль-Фатиха»</h1>
-      <p class="subtitle">Нажмите на любое слово, чтобы перейти к странице с его подробным разбором</p>
-    </header>
-
-    <main class="surah-container">
-
-      <!-- Аят 1 -->
-      <section class="ayah-card">
-        <div class="ayah-meta">
-          <span class="ayah-badge">Аят 1</span>
-        </div>
-        <div class="arabic-text">
-          <a href="bismi.html" class="word-link" title="Перейти к разбору слова">بِسْمِ</a>
-          <a href="allahi.html" class="word-link" title="Перейти к разбору слова">ٱللَّهِ</a>
-          <a href="arrahmani.html" class="word-link" title="Перейти к разбору слова">ٱلرَّحْمَانِ</a>
-          <a href="arrahimi.html" class="word-link" title="Перейти к разбору слова">ٱلرَّحِيمِ</a>
-          <span class="ayah-end">۝١</span>
-        </div>
-        <p class="translation">С именем Аллаха, Милостивого, Милосердного.</p>
-      </section>
-
-      <!-- Аят 2 -->
-      <section class="ayah-card">
-        <div class="ayah-meta">
-          <span class="ayah-badge">Аят 2</span>
-        </div>
-        <div class="arabic-text">
-          <a href="alhamdu.html" class="word-link" title="Перейти к разбору слова">ٱلْحَمْدُ</a>
-          <a href="lillahi.html" class="word-link" title="Перейти к разбору слова">لِلَّهِ</a>
-          <a href="robbi.html" class="word-link" title="Перейти к разбору слова">رَبِّ</a>
-          <a href="alamina.html" class="word-link" title="Перейти к разбору слова">ٱلْعَالَمِينَ</a>
-          <span class="ayah-end">۝٢</span>
-        </div>
-        <p class="translation">Хвала Аллаху, Господу миров,</p>
-      </section>
-
-      <!-- Аят 3 -->
-      <section class="ayah-card">
-        <div class="ayah-meta">
-          <span class="ayah-badge">Аят 3</span>
-        </div>
-        <div class="arabic-text">
-          <a href="arrahmani2.html" class="word-link" title="Перейти к разбору слова">ٱلرَّحْمَانِ</a>
-          <a href="arrahimi2.html" class="word-link" title="Перейти к разбору слова">ٱلرَّحِيمِ</a>
-          <span class="ayah-end">۝٣</span>
-        </div>
-        <p class="translation">Милостивому, Милосердному,</p>
-      </section>
-
-      <!-- Аят 4 -->
-      <section class="ayah-card">
-        <div class="ayah-meta">
-          <span class="ayah-badge">Аят 4</span>
-        </div>
-        <div class="arabic-text">
-          <a href="maliki.html" class="word-link" title="Перейти к разбору слова">مَالِكِ</a>
-          <a href="yawmi.html" class="word-link" title="Перейти к разбору слова">يَوْمِ</a>
-          <a href="addini.html" class="word-link" title="Перейти к разбору слова">ٱلدِّينِ</a>
-          <span class="ayah-end">۝٤</span>
-        </div>
-        <p class="translation">Властелину Дня воздаяния!</p>
-      </section>
-
-      <!-- Аят 5 -->
-      <section class="ayah-card">
-        <div class="ayah-meta">
-          <span class="ayah-badge">Аят 5</span>
-        </div>
-        <div class="arabic-text">
-          <a href="iyyaka.html" class="word-link" title="Перейти к разбору слова">إِيَّاكَ</a>
-          <a href="na'budu.html" class="word-link" title="Перейти к разбору слова">نَعْبُدُ</a>
-          <a href="waiyyaka.html" class="word-link" title="Перейти к разбору слова">وَإِيَّاكَ</a>
-          <a href="nasta'inu.html" class="word-link" title="Перейти к разбору слова">نَسْتَعِينُ</a>
-          <span class="ayah-end">۝٥</span>
-        </div>
-        <p class="translation">Тебе одному мы поклоняемся и Тебя одного молим о помощи.</p>
-      </section>
-
-      <!-- Аят 6 -->
-      <section class="ayah-card">
-        <div class="ayah-meta">
-          <span class="ayah-badge">Аят 6</span>
-        </div>
-        <div class="arabic-text">
-          <a href="ihdina.html" class="word-link" title="Перейти к разбору слова">ٱهْدِنَا</a>
-          <a href="assiroto.html" class="word-link" title="Перейти к разбору слова">ٱلصِّرَاطَ</a>
-          <a href="almustaqima.html" class="word-link" title="Перейти к разбору слова">ٱلْمُسْتَقِيمَ</a>
-          <span class="ayah-end">۝٦</span>
-        </div>
-        <p class="translation">Веди нас прямым путем,</p>
-      </section>
-
-      <!-- Аят 7 -->
-      <section class="ayah-card">
-        <div class="ayah-meta">
-          <span class="ayah-badge">Аят 7</span>
-        </div>
-        <div class="arabic-text">
-          <a href="siroto.html" class="word-link" title="Перейти к разбору слова">صِرَاطَ</a>
-          <a href="allazina.html" class="word-link" title="Перейти к разбору слова">ٱلَّذِينَ</a>
-          <a href="an'amta.html" class="word-link" title="Перейти к разбору слова">أَنْعَمْتَ</a>
-          <a href="alayhim.html" class="word-link" title="Перейти к разбору слова">عَلَيْهِمْ</a>
-          <a href="goyri.html" class="word-link" title="Перейти к разбору слова">غَيْرِ</a>
-          <a href="magdubi.html" class="word-link" title="Перейти к разбору слова">ٱلْمَغْضُوبِ</a>
-          <a href="alayhim2.html" class="word-link" title="Перейти к разбору слова">عَلَيْهِمْ</a>
-          <a href="wala.html" class="word-link" title="Перейти к разбору слова">وَلَا</a>
-          <a href="addolina.html" class="word-link" title="Перейти к разбору слова">ٱلضَّالِّينَ</a>
-          <span class="ayah-end">۝٧</span>
-        </div>
-        <p class="translation">путем тех, кого Ты облагодетельствовал, не тех, на кого пал гнев, и не заблудших.</p>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- Скрипт инициализации и интеграции VK Bridge -->
-  <script>
-    if (window.vkBridge) {
-      // Обязательная инициализация сервиса
-      vkBridge.send('VKWebAppInit')
-        .then(() => {
-          console.log('VK Bridge успешно инициализирован');
-        })
-        .catch((error) => {
-          console.error('Ошибка инициализации VK Bridge:', error);
-        });
-
-      
-    }
-
-    // Перехват кликов по внутренним ссылкам для предотвращения открытия браузера
-    document.addEventListener('click', (e) => {
-      const targetLink = e.target.closest('a');
-      if (!targetLink) return;
-    
-      const href = targetLink.getAttribute('href');
-    
-      // Игнорируем якоря, внешние протоколы и пустые ссылки
-      if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:')) {
-        return;
+      .subtitle {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.45;
       }
-    
-      e.preventDefault();
-    
-      // Загружаем страницу без перезагрузки браузера
-      loadPage(href);
-    });
-    
-    async function loadPage(url) {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Ошибка загрузки');
-        
-        const htmlText = await response.text();
-        const parser = new DOMParser();
-        const newDoc = parser.parseFromString(htmlText, 'text/html');
-    
-        // 1. Обновляем title
-        document.title = newDoc.title;
-    
-        // 2. Обновляем стили: ищем динамический стиль или создаем его
-        const newStyle = newDoc.querySelector('head style');
-        if (newStyle) {
-          let currentDynamicStyle = document.getElementById('dynamic-page-style');
-          if (!currentDynamicStyle) {
-            currentDynamicStyle = document.createElement('style');
-            currentDynamicStyle.id = 'dynamic-page-style';
-            document.head.appendChild(currentDynamicStyle);
+
+      .surah-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .ayah-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 18px 16px 14px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      }
+
+      .ayah-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .ayah-badge {
+        font-size: 0.75rem;
+        background: #f1f5f9;
+        color: var(--primary);
+        font-weight: 600;
+        padding: 3px 8px;
+        border-radius: 6px;
+      }
+
+      /* Арабский блок */
+      .arabic-text {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-weight: 500;
+        font-size: 1.75rem;
+        line-height: 2.45;
+        text-align: right;
+        word-spacing: 6px;
+      }
+
+      .word-link {
+        display: inline-block;
+        color: var(--text-main);
+        text-decoration: none;
+        padding: 2px 7px;
+        margin: 1px 0;
+        border-radius: 8px;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease,
+          transform 0.1s ease;
+        cursor: pointer;
+      }
+
+      .word-link:active {
+        transform: scale(0.95);
+        background-color: var(--primary);
+        color: #ffffff;
+      }
+
+      @media (hover: hover) {
+        .word-link:hover {
+          background-color: var(--primary-light);
+          color: var(--primary);
+        }
+      }
+
+      .ayah-end {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        color: var(--ayah-num);
+        margin-right: 6px;
+        user-select: none;
+      }
+
+      .translation {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px dashed var(--border-color);
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.45;
+      }
+
+      .transcription {
+        font-family:
+          'Manrope',
+          system-ui,
+          -apple-system,
+          sans-serif;
+        font-feature-settings:
+          'liga' 1,
+          'calt' 1;
+        text-rendering: optimizeLegibility;
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          max-width: 780px;
+          padding: 32px 24px 60px;
+        }
+        .arabic-hero {
+          font-size: 4.5rem;
+        }
+        .transcription {
+          font-size: 1.45rem;
+        }
+        .meaning {
+          font-size: 1.15rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <span class="badge">Сура 1</span>
+        <h1>Сура «Аль-Фатиха»</h1>
+        <p class="subtitle">
+          Нажмите на любое слово, чтобы перейти к странице с его подробным разбором
+        </p>
+      </header>
+
+      <main class="surah-container">
+        <!-- Аят 1 -->
+        <section class="ayah-card">
+          <div class="ayah-meta">
+            <span class="ayah-badge">Аят 1</span>
+          </div>
+          <div class="arabic-text">
+            <a href="bismi.html" class="word-link" title="Перейти к разбору слова">بِسْمِ</a>
+            <a href="allahi.html" class="word-link" title="Перейти к разбору слова">ٱللَّهِ</a>
+            <a href="arrahmani.html" class="word-link" title="Перейти к разбору слова"
+              >ٱلرَّحْمَانِ</a
+            >
+            <a href="arrahimi.html" class="word-link" title="Перейти к разбору слова">ٱلرَّحِيمِ</a>
+            <span class="ayah-end">۝١</span>
+          </div>
+          <p class="translation">С именем Аллаха, Милостивого, Милосердного.</p>
+        </section>
+
+        <!-- Аят 2 -->
+        <section class="ayah-card">
+          <div class="ayah-meta">
+            <span class="ayah-badge">Аят 2</span>
+          </div>
+          <div class="arabic-text">
+            <a href="alhamdu.html" class="word-link" title="Перейти к разбору слова">ٱلْحَمْدُ</a>
+            <a href="lillahi.html" class="word-link" title="Перейти к разбору слова">لِلَّهِ</a>
+            <a href="robbi.html" class="word-link" title="Перейти к разбору слова">رَبِّ</a>
+            <a href="alamina.html" class="word-link" title="Перейти к разбору слова"
+              >ٱلْعَالَمِينَ</a
+            >
+            <span class="ayah-end">۝٢</span>
+          </div>
+          <p class="translation">Хвала Аллаху, Господу миров,</p>
+        </section>
+
+        <!-- Аят 3 -->
+        <section class="ayah-card">
+          <div class="ayah-meta">
+            <span class="ayah-badge">Аят 3</span>
+          </div>
+          <div class="arabic-text">
+            <a href="arrahmani2.html" class="word-link" title="Перейти к разбору слова"
+              >ٱلرَّحْمَانِ</a
+            >
+            <a href="arrahimi2.html" class="word-link" title="Перейти к разбору слова"
+              >ٱلرَّحِيمِ</a
+            >
+            <span class="ayah-end">۝٣</span>
+          </div>
+          <p class="translation">Милостивому, Милосердному,</p>
+        </section>
+
+        <!-- Аят 4 -->
+        <section class="ayah-card">
+          <div class="ayah-meta">
+            <span class="ayah-badge">Аят 4</span>
+          </div>
+          <div class="arabic-text">
+            <a href="maliki.html" class="word-link" title="Перейти к разбору слова">مَالِكِ</a>
+            <a href="yawmi.html" class="word-link" title="Перейти к разбору слова">يَوْمِ</a>
+            <a href="addini.html" class="word-link" title="Перейти к разбору слова">ٱلدِّينِ</a>
+            <span class="ayah-end">۝٤</span>
+          </div>
+          <p class="translation">Властелину Дня воздаяния!</p>
+        </section>
+
+        <!-- Аят 5 -->
+        <section class="ayah-card">
+          <div class="ayah-meta">
+            <span class="ayah-badge">Аят 5</span>
+          </div>
+          <div class="arabic-text">
+            <a href="iyyaka.html" class="word-link" title="Перейти к разбору слова">إِيَّاكَ</a>
+            <a href="na'budu.html" class="word-link" title="Перейти к разбору слова">نَعْبُدُ</a>
+            <a href="waiyyaka.html" class="word-link" title="Перейти к разбору слова">وَإِيَّاكَ</a>
+            <a href="nasta'inu.html" class="word-link" title="Перейти к разбору слова"
+              >نَسْتَعِينُ</a
+            >
+            <span class="ayah-end">۝٥</span>
+          </div>
+          <p class="translation">Тебе одному мы поклоняемся и Тебя одного молим о помощи.</p>
+        </section>
+
+        <!-- Аят 6 -->
+        <section class="ayah-card">
+          <div class="ayah-meta">
+            <span class="ayah-badge">Аят 6</span>
+          </div>
+          <div class="arabic-text">
+            <a href="ihdina.html" class="word-link" title="Перейти к разбору слова">ٱهْدِنَا</a>
+            <a href="assiroto.html" class="word-link" title="Перейти к разбору слова">ٱلصِّرَاطَ</a>
+            <a href="almustaqima.html" class="word-link" title="Перейти к разбору слова"
+              >ٱلْمُسْتَقِيمَ</a
+            >
+            <span class="ayah-end">۝٦</span>
+          </div>
+          <p class="translation">Веди нас прямым путем,</p>
+        </section>
+
+        <!-- Аят 7 -->
+        <section class="ayah-card">
+          <div class="ayah-meta">
+            <span class="ayah-badge">Аят 7</span>
+          </div>
+          <div class="arabic-text">
+            <a href="siroto.html" class="word-link" title="Перейти к разбору слова">صِرَاطَ</a>
+            <a href="allazina.html" class="word-link" title="Перейти к разбору слова">ٱلَّذِينَ</a>
+            <a href="an'amta.html" class="word-link" title="Перейти к разбору слова">أَنْعَمْتَ</a>
+            <a href="alayhim.html" class="word-link" title="Перейти к разбору слова">عَلَيْهِمْ</a>
+            <a href="goyri.html" class="word-link" title="Перейти к разбору слова">غَيْرِ</a>
+            <a href="magdubi.html" class="word-link" title="Перейти к разбору слова"
+              >ٱلْمَغْضُوبِ</a
+            >
+            <a href="alayhim2.html" class="word-link" title="Перейти к разбору слова">عَلَيْهِمْ</a>
+            <a href="wala.html" class="word-link" title="Перейти к разбору слова">وَلَا</a>
+            <a href="addolina.html" class="word-link" title="Перейти к разбору слова"
+              >ٱلضَّالِّينَ</a
+            >
+            <span class="ayah-end">۝٧</span>
+          </div>
+          <p class="translation">
+            путем тех, кого Ты облагодетельствовал, не тех, на кого пал гнев, и не заблудших.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // Перехват кликов по внутренним ссылкам для предотвращения открытия браузера
+      document.addEventListener('click', (e) => {
+        const targetLink = e.target.closest('a');
+        if (!targetLink) return;
+
+        const href = targetLink.getAttribute('href');
+
+        // Игнорируем якоря, внешние протоколы и пустые ссылки
+        if (
+          !href ||
+          href.startsWith('#') ||
+          href.startsWith('http') ||
+          href.startsWith('mailto:')
+        ) {
+          return;
+        }
+
+        e.preventDefault();
+
+        // Загружаем страницу без перезагрузки браузера
+        loadPage(href);
+      });
+
+      async function loadPage(url) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error('Ошибка загрузки');
+
+          const htmlText = await response.text();
+          const parser = new DOMParser();
+          const newDoc = parser.parseFromString(htmlText, 'text/html');
+
+          // 1. Обновляем title
+          document.title = newDoc.title;
+
+          // 2. Обновляем стили: ищем динамический стиль или создаем его
+          const newStyle = newDoc.querySelector('head style');
+          if (newStyle) {
+            let currentDynamicStyle = document.getElementById('dynamic-page-style');
+            if (!currentDynamicStyle) {
+              currentDynamicStyle = document.createElement('style');
+              currentDynamicStyle.id = 'dynamic-page-style';
+              document.head.appendChild(currentDynamicStyle);
+            }
+            currentDynamicStyle.textContent = newStyle.textContent;
           }
-          currentDynamicStyle.textContent = newStyle.textContent;
+
+          // 3. Обновляем контент контейнера
+          const newContent = newDoc.querySelector('.container');
+          const currentContent = document.querySelector('.container');
+
+          if (newContent && currentContent) {
+            currentContent.innerHTML = newContent.innerHTML;
+            window.scrollTo(0, 0);
+
+            // История для кнопки "Назад"
+            history.pushState({ path: url }, '', url);
+          }
+        } catch (err) {
+          // Если fetch заблокирован локально (file://)
+          window.location.href = url;
         }
-    
-        // 3. Обновляем контент контейнера
-        const newContent = newDoc.querySelector('.container');
-        const currentContent = document.querySelector('.container');
-    
-        if (newContent && currentContent) {
-          currentContent.innerHTML = newContent.innerHTML;
-          window.scrollTo(0, 0);
-          
-          // История для кнопки "Назад"
-          history.pushState({ path: url }, '', url);
-    
-          
+      }
+
+      // Обработка кнопки «Назад» на телефоне
+      window.addEventListener('popstate', (e) => {
+        if (e.state && e.state.path) {
+          loadPage(e.state.path);
+        } else {
+          location.reload();
         }
-      } catch (err) {
-        // Если fetch заблокирован локально (file://)
-        window.location.href = url;
-      }
-    }
-    
-    // Обработка кнопки «Назад» на телефоне
-    window.addEventListener('popstate', (e) => {
-      if (e.state && e.state.path) {
-        loadPage(e.state.path);
-      } else {
-        location.reload();
-      }
-    });
-    
-  </script>
-</body>
+      });
+    </script>
+  </body>
 </html>

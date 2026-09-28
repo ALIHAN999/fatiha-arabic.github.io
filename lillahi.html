@@ -360,8 +360,6 @@
     }
   </style>
 
-  <!-- Подключение VK Bridge -->
-  <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 </head>
 <body>
 
@@ -443,13 +441,6 @@
 
   </div>
 
-  <!-- Скрипт VK Bridge -->
-  <script>
-    if (window.vkBridge) {
-      // Инициализация сервиса внутри клиента VK
-      vkBridge.send('VKWebAppInit')
-        .catch((error) => console.error('VKWebAppInit Error:', error));
-    }
-  </script>
+  
 </body>
 </html>
