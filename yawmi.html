@@ -1,368 +1,192 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Слово يَوْمِ — Простой разбор для начинающих</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слово يَوْمِ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic и Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
- 
-  <style>
-    :root {
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --primary: #0f766e;
-      --primary-light: #ccfbf1;
-      --border-color: #e2e8f0;
-      --accent-bg: #fef3c7;
-      --accent-border: #f59e0b;
-      --accent-text: #92400e;
-      --blue-bg: #e0f2fe;
-      --blue-text: #0369a1;
-      --green-bg: #f0fdf4;
-      --green-text: #166534;
-    }
+    <!-- Шрифты: Noto Naskh Arabic и Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/general.css" />
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
+    <style>
+      :root {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0f766e;
+        --primary-light: #ccfbf1;
+        --border-color: #e2e8f0;
+        --accent-bg: #fef3c7;
+        --accent-border: #f59e0b;
+        --accent-text: #92400e;
+        --blue-bg: #e0f2fe;
+        --blue-text: #0369a1;
+        --green-bg: #f0fdf4;
+        --green-text: #166534;
+      }
 
-    body {
-      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.5;
-      padding-bottom: 40px;
-    }
+      /* Тройная связка */
+      .phrase-box {
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 16px 12px;
+        text-align: center;
+        margin-bottom: 12px;
+      }
 
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 16px;
-    }
+      .phrase-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: 1.85rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 6px;
+      }
 
-    .top-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
+      .phrase-meaning {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-    }
+      .phrase-meaning strong {
+        color: var(--text-main);
+      }
 
-    .back-btn:active {
-      background: var(--primary-light);
-    }
+      /* Список шагов */
 
-    .ayah-indicator {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
+      .nowrap {
+        white-space: nowrap;
+      }
 
-    /* Главная карточка */
-    .hero-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-      margin-bottom: 16px;
-    }
+      /* Q&A карточки */
+      .qa-box {
+        border-left: 3px solid var(--primary);
+        background: var(--green-bg);
+        padding: 10px 12px;
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 10px;
+        font-size: 0.88rem;
+      }
 
-    .arabic-hero {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 3.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
+      .qa-question {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 4px;
+      }
 
-    .transcription {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 4px;
-    }
+      .qa-answer {
+        color: #334155;
+        line-height: 1.6;
+      }
 
-    .meaning {
-      font-size: 1rem;
-      color: var(--text-muted);
-    }
+      /* Подсказки */
+      .phonetic-card {
+        background: var(--blue-bg);
+        border: 1px solid #bae6fd;
+        border-radius: 14px;
+        padding: 14px;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        color: var(--blue-text);
+        margin-bottom: 14px;
+      }
 
-    /* Секции */
-    .section-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 18px 16px;
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Тройная связка */
-    .phrase-box {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 16px 12px;
-      text-align: center;
-      margin-bottom: 12px;
-    }
-
-    .phrase-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.85rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .phrase-meaning {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .phrase-meaning strong {
-      color: var(--text-main);
-    }
-
-    /* Список шагов */
-    .steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .step-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 10px;
-      border-radius: 10px;
-      background: #f8fafc;
-    }
-
-    .step-badge {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-top: 2px;
-    }
-
-    .step-content {
-      font-size: 0.88rem;
-      line-height: 1.45;
-    }
-
-    .arabic-inline {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin: 0 2px;
-    }
-
-    .nowrap {
-      white-space: nowrap;
-    }
-
-    /* Q&A карточки */
-    .qa-box {
-      border-left: 3px solid var(--primary);
-      background: var(--green-bg);
-      padding: 10px 12px;
-      border-radius: 0 10px 10px 0;
-      margin-bottom: 10px;
-      font-size: 0.88rem;
-    }
-
-    .qa-question {
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .qa-answer {
-      color: #334155;
-      line-height: 1.4;
-    }
-
-    /* Подсказки */
-    .phonetic-card {
-      background: var(--blue-bg);
-      border: 1px solid #bae6fd;
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--blue-text);
-      margin-bottom: 14px;
-    }
-
-    .phonetic-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    .tip-card {
-      background: var(--accent-bg);
-      border: 1px solid var(--accent-border);
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--accent-text);
-      margin-bottom: 16px;
-    }
-
-    .tip-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    /* Навигация между словами */
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .nav-link {
-      flex: 1;
-      text-align: center;
-      padding: 12px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.88rem;
-      border: 1px solid var(--border-color);
-      background: var(--card-bg);
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-link.active {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    
-    <!-- Навигация наверх -->
-    <div class="top-nav">
-      <a href="index.html" class="back-btn">← К суре</a>
-      <span class="ayah-indicator">Аят 4 • Слово 2</span>
-    </div>
-
-    <!-- Заглавный блок -->
-    <header class="hero-card">
-      <div class="arabic-hero">يَوْمِ</div>
-      <div class="transcription">Йавми</div>
-      <div class="meaning">«Дня» / «Периода»</div>
-    </header>
-
-    <!-- Роль слова: Мост в двойной связке -->
-    <section class="section-card">
-      <h2 class="section-title">🌉 Мост между двумя словами</h2>
-      
-      <div class="phrase-box">
-        <div class="phrase-arabic">مَالِكِ يَوْمِ ٱلدِّينِ</div>
-        <div class="phrase-meaning">Властелину (чего?) → <strong>Дня</strong> (чего?) → <strong>Воздаяния</strong></div>
+      .phonetic-card strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Навигация наверх -->
+      <div class="top-nav">
+        <a href="index.html" class="back-btn">← К суре</a>
+        <span class="ayah-indicator">Аят 4 • Слово 2</span>
       </div>
 
-      <div class="steps-list">
-        <div class="step-item">
-          <div class="step-badge">1</div>
-          <div class="step-content">
-            <strong>Оно подчиняется первому слову:</strong> отвечает на вопрос <em>«Властелину чего? — Дня»</em>, завершая первую связку владения.
+      <!-- Заглавный блок -->
+      <header class="hero-card">
+        <div class="arabic-hero">يَوْمِ</div>
+        <div class="transcription">Йавми</div>
+        <div class="meaning">«Дня» / «Периода»</div>
+      </header>
+
+      <!-- Роль слова: Мост в двойной связке -->
+      <section class="section-card">
+        <h2 class="section-title">🌉 Мост между двумя словами</h2>
+
+        <div class="phrase-box">
+          <div class="phrase-arabic">مَالِكِ يَوْمِ ٱلدِّينِ</div>
+          <div class="phrase-meaning">
+            <strong>Властелину</strong> (чего?) → <strong>Дня</strong> (чего?) →
+            <strong>Воздаяния</strong>
           </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">2</div>
-          <div class="step-content">
-            <strong>Оно подчиняет следующее слово:</strong> начинает вторую связку <em>«День чего? — Суда / Воздаяния»</em>. Поэтому у него нет артикля <span class="arabic-inline">الـ</span> <br>и нет танвина на конце.
+
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-badge">1</div>
+            <div class="step-content">
+              <strong>Оно подчиняется первому слову:</strong> отвечает на&nbsp;вопрос
+              <em>«Властелину чего? — Дня»</em>, завершая первую связку владения.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-badge">2</div>
+            <div class="step-content">
+              <strong>Оно подчиняет следующее слово:</strong> начинает вторую связку
+              <em>«День чего? — Суда / Воздаяния»</em>. Поэтому у него нет&nbsp;артикля
+              <span class="arabic-inline">الـ</span> и&nbsp;нет танвина на&nbsp;конце.
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Почему на конце кясра? -->
-    <section class="section-card">
-      <h2 class="section-title">❓ Почему на конце черточка снизу (кясра)?</h2>
-      
-      <div class="qa-box">
-        <div class="qa-question">Правило зависимого слова:</div>
-        <div class="qa-answer">
-          Так как слово <span class="arabic-inline">يَوْمِ</span> отвечает на вопрос <em>«чего?»</em> после слова <span class="arabic-inline">مَالِكِ</span>, оно встает <br>в родительный падеж и принимает огласовку <strong>кясра ( ـِ )</strong>: <span class="nowrap"><em>«Мāлики йавм<strong style="color: var(--primary);">и</strong>»</em></span>.
+      <!-- Почему на конце кясра? -->
+      <section class="section-card">
+        <h2 class="section-title">❓ Почему на&nbsp;конце черточка снизу (кясра)?</h2>
+
+        <div class="qa-box">
+          <div class="qa-question">Правило зависимого слова:</div>
+          <div class="qa-answer">
+            Так как слово <span class="arabic-inline">يَوْمِ</span> отвечает на&nbsp;вопрос
+            <em>«чего?»</em> после слова <span class="arabic-inline">مَالِكِ</span>, оно встает
+            в&nbsp;родительный падеж и&nbsp;принимает огласовку
+            <strong>кясра (&nbsp;ـِ&nbsp;)</strong>:
+            <span class="nowrap"
+              ><em>«Мāлики йавм<strong style="color: var(--primary)">и</strong>»</em></span
+            >.
+          </div>
         </div>
+      </section>
+
+      <!-- Тонкость понятия «День» в арабском языке -->
+      <div class="tip-card">
+        <strong>💡 Что означает «Йавм» в Коране?</strong>
+        В бытовой речи <em>«йавм»</em> — это&nbsp;привычный день от&nbsp;рассвета до&nbsp;заката.
+        Однако в&nbsp;кораническом контексте это&nbsp;слово обозначает колоссальный временной
+        отрезок, судьбоносную эпоху или&nbsp;событие, когда свершится суд над&nbsp;всеми деяниями.
       </div>
-    </section>
 
-    <!-- Тонкость понятия «День» в арабском языке -->
-    <div class="tip-card">
-      <strong>💡 Что означает «Йавм» в Коране?</strong>
-      В бытовой речи <em>«йавм»</em> — это привычный день от рассвета до заката. Однако <br>в кораническом контексте это слово обозначает колоссальный временной отрезок, судьбоносную эпоху или событие, когда свершится суд над всеми деяниями.
+      <!-- Навигация между словами -->
+      <div class="nav-buttons">
+        <a href="maliki.html" class="nav-link">← 4:1. مَالِكِ</a>
+        <a href="addini.html" class="nav-link active">4:3. ٱلدِّينِ →</a>
+      </div>
     </div>
-
-    <!-- Навигация между словами -->
-    <div class="nav-buttons">
-      <a href="maliki.html" class="nav-link">← 4:1. مَالِكِ</a>
-      <a href="addini.html" class="nav-link active">4:3. ٱلدِّينِ →</a>
-    </div>
-
-  </div>
-
-</body>
+  </body>
 </html>

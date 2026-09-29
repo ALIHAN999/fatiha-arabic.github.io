@@ -1,399 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Слово بِسْمِ — Простой разбор для начинающих</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слово بِسْمِ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic и Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --primary: #0f766e;
-      --primary-light: #ccfbf1;
-      --border-color: #e2e8f0;
-      --part-prep: #0284c7;
-      --part-noun: #16a34a;
-      --accent-bg: #fef3c7;
-      --accent-border: #f59e0b;
-      --accent-text: #92400e;
-    }
+    <!-- Шрифты: Noto Naskh Arabic и Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/general.css" />
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
+    <style>
+      :root {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0f766e;
+        --primary-light: #ccfbf1;
+        --border-color: #e2e8f0;
+        --part-prep: #0284c7;
+        --part-noun: #16a34a;
+        --accent-bg: #fef3c7;
+        --accent-border: #f59e0b;
+        --accent-text: #92400e;
+      }
 
-    body {
-      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.5;
-      padding-bottom: 40px;
-    }
+      /* Сетка формулы с выравниванием знаков строго по центру */
+      .math-formula {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        align-items: start;
+        gap: 6px;
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 16px 8px;
+        margin-bottom: 14px;
+        text-align: center;
+      }
 
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 16px;
-    }
+      .math-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-    .top-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
+      .math-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.2;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-    }
+      .math-prep {
+        color: var(--part-prep);
+      }
+      .math-noun {
+        color: var(--part-noun);
+      }
+      .math-result {
+        color: var(--primary);
+      }
 
-    .back-btn:active {
-      background: var(--primary-light);
-    }
+      .math-label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-top: 6px;
+        line-height: 1.25;
+        text-align: center;
+      }
 
-    .ayah-indicator {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
+      .math-sign {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #94a3b8;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+      }
 
-    /* Главная карточка */
-    .hero-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-      margin-bottom: 16px;
-    }
+      /* Шаги объяснения */
 
-    .arabic-hero {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 3.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
+      .nowrap {
+        white-space: nowrap;
+      }
 
-    .transcription {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 4px;
-    }
+      /* Q&A карточки */
+      .qa-box {
+        border-left: 3px solid var(--primary);
+        background: #f0fdf4;
+        padding: 10px 12px;
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 10px;
+        font-size: 0.88rem;
+      }
 
-    .meaning {
-      font-size: 1rem;
-      color: var(--text-muted);
-    }
+      .qa-question {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 4px;
+      }
 
-    /* Секции */
-    .section-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 18px 16px;
-      margin-bottom: 14px;
-    }
+      .qa-answer {
+        color: #334155;
+        line-height: 1.6;
+      }
 
-    .section-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+      /* Навигация */
 
-    /* Сетка формулы с выравниванием знаков строго по центру */
-    .math-formula {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr;
-      align-items: start;
-      gap: 6px;
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 16px 8px;
-      margin-bottom: 14px;
-      text-align: center;
-    }
+      .nav-link.disabled {
+        opacity: 0.4;
+        pointer-events: none;
+      }
 
-    .math-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .math-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.75rem;
-      font-weight: 700;
-      line-height: 1.2;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .math-prep { color: var(--part-prep); }
-    .math-noun { color: var(--part-noun); }
-    .math-result { color: var(--primary); }
-
-    .math-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-top: 6px;
-      line-height: 1.25;
-      text-align: center;
-    }
-
-    .math-sign {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #94a3b8;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-    }
-
-    /* Шаги объяснения */
-    .steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .step-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 10px;
-      border-radius: 10px;
-      background: #f8fafc;
-    }
-
-    .step-badge {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-top: 2px;
-    }
-
-    .step-content {
-      font-size: 0.88rem;
-      line-height: 1.45;
-    }
-
-    .arabic-inline {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin: 0 2px;
-    }
-
-    .nowrap {
-      white-space: nowrap;
-    }
-
-    /* Q&A карточки */
-    .qa-box {
-      border-left: 3px solid var(--primary);
-      background: #f0fdf4;
-      padding: 10px 12px;
-      border-radius: 0 10px 10px 0;
-      margin-bottom: 10px;
-      font-size: 0.88rem;
-    }
-
-    .qa-question {
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .qa-answer {
-      color: #334155;
-      line-height: 1.4;
-    }
-
-    /* Карточка секрета */
-    .tip-card {
-      background: var(--accent-bg);
-      border: 1px solid var(--accent-border);
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--accent-text);
-      margin-bottom: 16px;
-    }
-
-    .tip-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    /* Навигация */
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .nav-link {
-      flex: 1;
-      text-align: center;
-      padding: 12px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.88rem;
-      border: 1px solid var(--border-color);
-      background: var(--card-bg);
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-link.disabled {
-      opacity: 0.4;
-      pointer-events: none;
-    }
-
-    .nav-link.active {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    
-    <div class="top-nav">
-      <a href="index.html" class="back-btn">← К суре</a>
-      <span class="ayah-indicator">Аят 1 • Слово 1</span>
-    </div>
-
-    <!-- Заглавие слова -->
-    <header class="hero-card">
-      <div class="arabic-hero">بِسْمِ</div>
-      <div class="transcription">Бисми</div>
-      <div class="meaning">«С именем...»</div>
-    </header>
-
-    <!-- Формула слова -->
-    <section class="section-card">
-      <h2 class="section-title">🔍 Из чего состоит слово?</h2>
-      
-      <div class="math-formula">
-        <div class="math-item">
-          <div class="math-arabic math-prep">بِـ</div>
-          <div class="math-label">С / Посредством</div>
-        </div>
-        <div class="math-sign">+</div>
-        <div class="math-item">
-          <div class="math-arabic math-noun">ٱسْمِ</div>
-          <div class="math-label">Имя</div>
-        </div>
-        <div class="math-sign">=</div>
-        <div class="math-item">
-          <div class="math-arabic math-result">بِسْمِ</div>
-          <div class="math-label">«С именем»</div>
-        </div>
+      #math-sign-plus {
+        position: relative;
+        right: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-nav">
+        <a href="index.html" class="back-btn">← К суре</a>
+        <span class="ayah-indicator">Аят 1 • Слово 1</span>
       </div>
 
-      <div class="steps-list">
-        <div class="step-item">
-          <div class="step-badge">1</div>
-          <div class="step-content">
-            <span class="arabic-inline">بِـ</span> (Би) — короткий предлог. <br>В арабском языке он пишется слитно со следующим словом <br>и переводится как <strong>«с»</strong> <br>или <strong>«посредством»</strong> .
+      <!-- Заглавие слова -->
+      <header class="hero-card">
+        <div class="arabic-hero">بِسْمِ</div>
+        <div class="transcription">Бисми</div>
+        <div class="meaning">«С именем...»</div>
+      </header>
+
+      <!-- Формула слова -->
+      <section class="section-card">
+        <h2 class="section-title">🔍 Из чего состоит слово?</h2>
+
+        <div class="math-formula">
+          <div class="math-item">
+            <div class="math-arabic math-prep">بِـ</div>
+            <div class="math-label">С / Посредством</div>
+          </div>
+          <div id="math-sign-plus" class="math-sign">+</div>
+          <div class="math-item">
+            <div class="math-arabic math-noun">ٱسْمِ</div>
+            <div class="math-label">Имя</div>
+          </div>
+          <div class="math-sign">=</div>
+          <div class="math-item">
+            <div class="math-arabic math-result">بِسْمِ</div>
+            <div class="math-label">«С именем»</div>
           </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">2</div>
-          <div class="step-content">
-            <span class="arabic-inline">ٱسْمِ</span> (Исм) — обычное имя существительное, означающее <strong>«имя»</strong> или <strong>«название»</strong>.
+
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-badge">1</div>
+            <div class="step-content">
+              <span class="arabic-inline">بِـ</span> (Би) — короткий предлог. В&nbsp;арабском языке
+              он пишется слитно со&nbsp;следующим словом и&nbsp;переводится как
+              <strong>«с»</strong> или&nbsp;<strong>«посредством»</strong> .
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-badge">2</div>
+            <div class="step-content">
+              <span class="arabic-inline">ٱسْمِ</span> (Исм) — обычное имя существительное,
+              означающее <strong>«имя»</strong> или&nbsp;<strong>«название»</strong>.
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Почему кясра? -->
-    <section class="section-card">
-      <h2 class="section-title">❓ Почему на конце черточка снизу (кясра)?</h2>
-      
-      <div class="qa-box">
-        <div class="qa-question">Правило предлогов:</div>
-        <div class="qa-answer">
-          Предлог <span class="arabic-inline">بِـ</span> требует, чтобы следующее за ним имя получило огласовку <br><strong>кясра ( ـِ )</strong> на конце. Именно поэтому мы читаем <span class="nowrap"><em>«би-см<strong style="color: var(--primary);">и</strong>»</em></span>, а не <em>«би-сму»</em>.
+      <!-- Почему кясра? -->
+      <section class="section-card">
+        <h2 class="section-title">❓ Почему на конце черточка снизу (кясра)?</h2>
+
+        <div class="qa-box">
+          <div class="qa-question">Правило предлогов:</div>
+          <div class="qa-answer">
+            Предлог <span class="arabic-inline">بِـ</span> требует, чтобы следующее за&nbsp;ним имя
+            получило огласовку <strong>кясра&nbsp;( ـِ )</strong> на&nbsp;конце. Именно поэтому мы
+            читаем
+            <span class="nowrap"
+              ><em>«би-см<strong style="color: var(--primary)">и</strong>»</em></span
+            >, а&nbsp;не&nbsp;<em>«би-сму»</em>.
+          </div>
         </div>
-      </div>
 
-      <div class="qa-box">
-        <div class="qa-question">Почему нет танвина ( ـٍ )?</div>
-        <div class="qa-answer">
-          Слово присоединено к следующему слову (<span class="arabic-inline">ٱللَّهِ</span>) в связку владения: <em>«Имя кого? — Аллаха»</em>. Первое слово такой связки никогда не получает танвин.
+        <div class="qa-box">
+          <div class="qa-question">Почему нет танвина ( ـٍ )?</div>
+          <div class="qa-answer">
+            Слово присоединено к&nbsp;следующему слову (<span class="arabic-inline">ٱللَّهِ</span>)
+            в&nbsp;связку владения: <em>«Имя кого? — Аллаха»</em>. Первое слово такой связки никогда
+            не&nbsp;получает танвин.
+          </div>
         </div>
+      </section>
+
+      <!-- Секрет написания -->
+      <div class="tip-card">
+        <strong>💡 Секрет написания:</strong>
+        Обычно слово «имя» пишется с буквой алиф: <span class="arabic-inline">اِسْم</span>. <br />Но
+        исключительно во фразе «Бисмиллях» эту букву убрали на&nbsp;письме для быстроты, так как
+        мусульмане произносят и&nbsp;пишут эту фразу многократно каждый день.
       </div>
-    </section>
 
-    <!-- Секрет написания -->
-    <div class="tip-card">
-      <strong>💡 Секрет написания:</strong>
-      Обычно слово «имя» пишется с буквой алиф: <span class="arabic-inline">اِسْم</span>. <br>Но исключительно во фразе «Бисмиллях» эту букву убрали на письме для быстроты, так как мусульмане произносят и пишут эту фразу многократно каждый день.
+      <!-- Навигация -->
+      <div class="nav-buttons">
+        <span class="nav-link disabled">← Начало</span>
+        <a href="allahi.html" class="nav-link active">Далее: ٱللَّهِ →</a>
+      </div>
     </div>
-
-    <!-- Навигация -->
-    <div class="nav-buttons">
-      <span class="nav-link disabled">← Начало</span>
-      <a href="allahi.html" class="nav-link active">Далее: ٱللَّهِ →</a>
-    </div>
-
-  </div>
-
-</body>
+  </body>
 </html>

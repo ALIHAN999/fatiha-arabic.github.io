@@ -1,396 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Слово ٱلْعَالَمِينَ — Простой разбор для начинающих</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слово ٱلْعَالَمِينَ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic и Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --primary: #0f766e;
-      --primary-light: #ccfbf1;
-      --border-color: #e2e8f0;
-      --accent-bg: #fef3c7;
-      --accent-border: #f59e0b;
-      --accent-text: #92400e;
-      --blue-bg: #e0f2fe;
-      --blue-text: #0369a1;
-      --green-bg: #f0fdf4;
-      --green-text: #166534;
-    }
+    <!-- Шрифты: Noto Naskh Arabic и Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/general.css" />
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
+    <style>
+      :root {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0f766e;
+        --primary-light: #ccfbf1;
+        --border-color: #e2e8f0;
+        --accent-bg: #fef3c7;
+        --accent-border: #f59e0b;
+        --accent-text: #92400e;
+        --blue-bg: #e0f2fe;
+        --blue-text: #0369a1;
+        --green-bg: #f0fdf4;
+        --green-text: #166534;
+      }
 
-    body {
-      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.5;
-      padding-bottom: 40px;
-    }
+      .phrase-box {
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 16px 12px;
+        text-align: center;
+        margin-bottom: 12px;
+      }
 
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 16px;
-    }
+      .phrase-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 6px;
+      }
 
-    .top-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
+      .phrase-meaning {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-    }
+      .phrase-meaning strong {
+        color: var(--text-main);
+      }
 
-    .back-btn:active {
-      background: var(--primary-light);
-    }
+      .nowrap {
+        white-space: nowrap;
+      }
 
-    .ayah-indicator {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
+      .qa-box {
+        border-left: 3px solid var(--primary);
+        background: var(--green-bg);
+        padding: 10px 12px;
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 10px;
+        font-size: 0.88rem;
+      }
 
-    .hero-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-      margin-bottom: 16px;
-    }
+      .qa-question {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 4px;
+      }
 
-    .arabic-hero {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 3.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
+      .qa-answer {
+        color: #334155;
+        line-height: 1.6;
+      }
 
-    .transcription {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 4px;
-    }
+      .compare-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 8px;
+      }
 
-    .meaning {
-      font-size: 1rem;
-      color: var(--text-muted);
-    }
+      .compare-item {
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 10px;
+        text-align: center;
+      }
 
-    .section-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 18px 16px;
-      margin-bottom: 14px;
-    }
+      .compare-name {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 4px;
+      }
 
-    .section-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+      .compare-desc {
+        font-size: 0.76rem;
+        color: var(--text-muted);
+        line-height: 1.35;
+      }
 
-    .phrase-box {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 16px 12px;
-      text-align: center;
-      margin-bottom: 12px;
-    }
+      .phonetic-card {
+        background: var(--blue-bg);
+        border: 1px solid #bae6fd;
+        border-radius: 14px;
+        padding: 14px;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        color: var(--blue-text);
+        margin-bottom: 14px;
+      }
 
-    .phrase-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .phrase-meaning {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .phrase-meaning strong {
-      color: var(--text-main);
-    }
-
-    .steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .step-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 10px;
-      border-radius: 10px;
-      background: #f8fafc;
-    }
-
-    .step-badge {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-top: 2px;
-    }
-
-    .step-content {
-      font-size: 0.88rem;
-      line-height: 1.45;
-    }
-
-    .arabic-inline {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin: 0 2px;
-    }
-
-    .nowrap {
-      white-space: nowrap;
-    }
-
-    .qa-box {
-      border-left: 3px solid var(--primary);
-      background: var(--green-bg);
-      padding: 10px 12px;
-      border-radius: 0 10px 10px 0;
-      margin-bottom: 10px;
-      font-size: 0.88rem;
-    }
-
-    .qa-question {
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .qa-answer {
-      color: #334155;
-      line-height: 1.4;
-    }
-
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .compare-item {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .compare-name {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .compare-desc {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      line-height: 1.35;
-    }
-
-    .phonetic-card {
-      background: var(--blue-bg);
-      border: 1px solid #bae6fd;
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--blue-text);
-      margin-bottom: 14px;
-    }
-
-    .phonetic-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    .tip-card {
-      background: var(--accent-bg);
-      border: 1px solid var(--accent-border);
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--accent-text);
-      margin-bottom: 16px;
-    }
-
-    .tip-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .nav-link {
-      flex: 1;
-      text-align: center;
-      padding: 12px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.88rem;
-      border: 1px solid var(--border-color);
-      background: var(--card-bg);
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-link.active {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    
-    <!-- Навигация наверх -->
-    <div class="top-nav">
-      <a href="index.html" class="back-btn">← К суре</a>
-      <span class="ayah-indicator">Аят 2 • Слово 4 (Конец аята)</span>
-    </div>
-
-    <!-- Заглавный блок -->
-    <header class="hero-card">
-      <div class="arabic-hero">ٱلْعَالَمِينَ</div>
-      <div class="transcription">Аль-‘а́лямӣна</div>
-      <div class="meaning">«Миров» / «Всех созданий»</div>
-    </header>
-
-    <!-- Роль в связке -->
-    <section class="section-card">
-      <h2 class="section-title">🔗 Завершение цепочки владения</h2>
-      
-      <div class="phrase-box">
-        <div class="phrase-arabic">رَبِّ ٱلْعَالَمِينَ</div>
-        <div class="phrase-meaning">Господу (чего?) → <strong>миров</strong></div>
+      .phonetic-card strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Навигация наверх -->
+      <div class="top-nav">
+        <a href="index.html" class="back-btn">← К суре</a>
+        <span class="ayah-indicator">Аят 2 • Слово 4 (Конец аята)</span>
       </div>
 
-      <div class="steps-list">
-        <div class="step-item">
-          <div class="step-badge">1</div>
-          <div class="step-content">
-            Слово завершает связку <strong>Идафы</strong>, отвечая на вопрос <em>«чего?»</em>. <br>В русском языке это родительный падеж: <em>«Господь миров»</em>.
+      <!-- Заглавный блок -->
+      <header class="hero-card">
+        <div class="arabic-hero">ٱلْعَالَمِينَ</div>
+        <div class="transcription">Аль-‘а́лямӣна</div>
+        <div class="meaning">«Миров» / «Всех созданий»</div>
+      </header>
+
+      <!-- Роль в связке -->
+      <section class="section-card">
+        <h2 class="section-title">🔗 Завершение цепочки владения</h2>
+
+        <div class="phrase-box">
+          <div class="phrase-arabic">رَبِّ ٱلْعَالَمِينَ</div>
+          <div class="phrase-meaning">Господу (чего?) → <strong>миров</strong></div>
+        </div>
+
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-badge">1</div>
+            <div class="step-content">
+              Слово завершает связку <strong>Идафы</strong>, отвечая на вопрос <em>«чего?»</em>.
+              <br />В русском языке это родительный падеж: <em><b>«Господь&nbsp;миров»</b></em
+              >.
+            </div>
           </div>
         </div>
-        
-    </section>
+      </section>
 
-    <!-- Секрет падежа во множественном числе -->
-    <section class="section-card">
-      <h2 class="section-title">❓ Почему на конце нет кясры?</h2>
-      
-      <div class="qa-box">
-        <div class="qa-question">Как меняются окончания <br>во множественном числе:</div>
-        <div class="qa-answer">
-          В единственном числе родительный падеж обозначается кясрой ( ـِ ). <br>Но во множественном числе мужского рода роль кясры берет на себя буква <strong>Йа (ي)</strong>: окончание меняется с <em>«-ӯна»</em> <br>на <strong>«-ӣна»</strong>. Поэтому пишется<br> не <span class="arabic-inline">عَالَمُونَ</span>, а <span class="arabic-inline"><strong>عَالَمِينَ</strong></span>.
+      <!-- Секрет падежа во множественном числе -->
+      <section class="section-card">
+        <h2 class="section-title">❓ Почему на&nbsp;конце нет&nbsp;кясры?</h2>
+
+        <div class="qa-box">
+          <div class="qa-question">Как меняются окончания во&nbsp;множественном числе:</div>
+          <div class="qa-answer">
+            В единственном числе родительный падеж обозначается кясрой (&nbsp;ـِ&nbsp;).
+            Но&nbsp;во&nbsp;множественном числе мужского рода роль кясры берет на&nbsp;себя буква
+            <strong>Йа (ي)</strong>: окончание меняется с&nbsp;<em>«-ӯна»</em>
+            на&nbsp;<strong>«-ӣна»</strong>. Поэтому пишется не&nbsp;<span class="arabic-inline"
+              >عَالَمُونَ</span
+            >, а&nbsp;<span class="arabic-inline"><strong>عَالَمِينَ</strong></span
+            >.
+          </div>
         </div>
+
+        <div class="compare-grid">
+          <div class="compare-item">
+            <div class="compare-name">عَالَمُونَ</div>
+            <div class="compare-desc">
+              <strong>Исходная форма:</strong> окончание <em>-ӯна</em> (именительный падеж, «миры»).
+            </div>
+          </div>
+          <div class="compare-item">
+            <div class="compare-name">عَالَمِينَ</div>
+            <div class="compare-desc">
+              <strong>В связке владения:</strong> окончание <em>-ӣна</em> через букву Йа («миров»).
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Тонкость корня -->
+      <div class="tip-card">
+        <strong>💡 Что означает слово «‘āлям»?</strong>
+        Слово происходит от&nbsp;корня <span class="arabic-inline">ع - ل - م</span>, связанного
+        со&nbsp;значением «знак, знамение». <br /><br />Каждый сотворенный мир (мир людей, мир
+        ангелов, мир растений, космос) служит знамением, указывающим на&nbsp;Мудрость Создателя.
       </div>
 
-      <div class="compare-grid">
-        <div class="compare-item">
-          <div class="compare-name">عَالَمُونَ</div>
-          <div class="compare-desc"><strong>Исходная форма:</strong> окончание <em>-ӯна</em> (именительный падеж, «миры»).</div>
-        </div>
-        <div class="compare-item">
-          <div class="compare-name">عَالَمِينَ</div>
-          <div class="compare-desc"><strong>В связке владения:</strong> окончание <em>-ӣна</em> через букву Йа («миров»).</div>
-        </div>
+      <!-- Навигация между словами -->
+      <div class="nav-buttons">
+        <a href="robbi.html" class="nav-link">← 2:3. رَبِّ</a>
+        <a href="arrahmani2.html" class="nav-link active">Аят 3: ٱلرَّحْمَانِ →</a>
       </div>
-    </section>
-
-    <!-- Тонкость корня -->
-    <div class="tip-card">
-      <strong>💡 Что означает слово «‘āлям»?</strong>
-      Слово происходит от корня <span class="arabic-inline">ع - ل - م</span>, связанного со значением «знак, знамение». <br>Каждый сотворенный мир (мир людей, мир ангелов, мир растений, космос) служит знамением, указывающим на Мудрость Создателя.
     </div>
-
-    <!-- Навигация между словами -->
-    <div class="nav-buttons">
-      <a href="robbi.html" class="nav-link">← 2:3. رَبِّ</a>
-      <a href="arrahmani2.html" class="nav-link active">Аят 3: ٱلرَّحْمَانِ →</a>
-    </div>
-
-  </div>
-
-</body>
+  </body>
 </html>

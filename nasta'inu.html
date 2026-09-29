@@ -1,455 +1,279 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Слово نَسْتَعِينُ — Простой разбор для начинающих</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слово نَسْتَعِينُ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic и Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Шрифты: Noto Naskh Arabic и Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/general.css" />
 
-  <style>
-    :root {
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --primary: #0f766e;
-      --primary-light: #ccfbf1;
-      --border-color: #e2e8f0;
-      --accent-bg: #fef3c7;
-      --accent-border: #f59e0b;
-      --accent-text: #92400e;
-      --blue-bg: #e0f2fe;
-      --blue-text: #0369a1;
-      --green-bg: #f0fdf4;
-      --green-text: #166534;
-      --part-prefix: #ea580c;
-      --part-form: #8b5cf6;
-      --part-root: #16a34a;
-    }
+    <style>
+      :root {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0f766e;
+        --primary-light: #ccfbf1;
+        --border-color: #e2e8f0;
+        --accent-bg: #fef3c7;
+        --accent-border: #f59e0b;
+        --accent-text: #92400e;
+        --blue-bg: #e0f2fe;
+        --blue-text: #0369a1;
+        --green-bg: #f0fdf4;
+        --green-text: #166534;
+        --part-prefix: #ea580c;
+        --part-form: #8b5cf6;
+        --part-root: #16a34a;
+      }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
+      /* Сетка формулы из 3 слагаемых со знаками строго по центру */
+      .math-formula {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+        align-items: start;
+        gap: 4px;
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 16px 6px;
+        margin-bottom: 14px;
+        text-align: center;
+      }
 
-    body {
-      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.5;
-      padding-bottom: 40px;
-    }
+      .math-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 16px;
-    }
+      .math-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: 1.2;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .top-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
+      .math-label {
+        font-size: 0.68rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-top: 6px;
+        line-height: 1.2;
+        text-align: center;
+      }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-    }
+      .math-sign {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #94a3b8;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+      }
 
-    .back-btn:active {
-      background: var(--primary-light);
-    }
+      /* Блок фразы */
+      .phrase-box {
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 16px 12px;
+        text-align: center;
+        margin-bottom: 12px;
+      }
 
-    .ayah-indicator {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
+      .phrase-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: 1.85rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 6px;
+      }
 
-    /* Главная карточка */
-    .hero-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-      margin-bottom: 16px;
-    }
+      .phrase-meaning {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
 
-    .arabic-hero {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 3.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
+      .phrase-meaning strong {
+        color: var(--text-main);
+      }
 
-    .transcription {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 4px;
-    }
+      /* Шаги */
 
-    .meaning {
-      font-size: 1rem;
-      color: var(--text-muted);
-    }
+      .nowrap {
+        white-space: nowrap;
+      }
 
-    /* Секции */
-    .section-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 18px 16px;
-      margin-bottom: 14px;
-    }
+      /* Q&A карточки */
+      .qa-box {
+        border-left: 3px solid var(--primary);
+        background: var(--green-bg);
+        padding: 10px 12px;
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 10px;
+        font-size: 0.88rem;
+      }
 
-    .section-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+      .qa-question {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 4px;
+      }
 
-    /* Сетка формулы из 3 слагаемых со знаками строго по центру */
-    .math-formula {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-      align-items: start;
-      gap: 4px;
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 16px 6px;
-      margin-bottom: 14px;
-      text-align: center;
-    }
+      .qa-answer {
+        color: #334155;
+        line-height: 1.6;
+      }
 
-    .math-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+      /* Подсказки */
+      .phonetic-card {
+        background: var(--blue-bg);
+        border: 1px solid #bae6fd;
+        border-radius: 14px;
+        padding: 14px;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        color: var(--blue-text);
+        margin-bottom: 14px;
+      }
 
-    .math-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      line-height: 1.2;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+      .phonetic-card strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Навигация наверх -->
+      <div class="top-nav">
+        <a href="index.html" class="back-btn">← К суре</a>
+        <span class="ayah-indicator">Аят 5 • Слово 4 (Конец аята)</span>
+      </div>
 
-    .math-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-top: 6px;
-      line-height: 1.2;
-      text-align: center;
-    }
+      <!-- Заглавный блок -->
+      <header class="hero-card">
+        <div class="arabic-hero">نَسْتَعِينُ</div>
+        <div class="transcription">Наста‘ӣну</div>
+        <div class="meaning">«Мы просим о помощи»</div>
+      </header>
 
-    .math-sign {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #94a3b8;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-    }
+      <!-- Из чего состоит глагол -->
+      <section class="section-card">
+        <h2 class="section-title">🔍 Из чего состоит глагол?</h2>
 
-    /* Блок фразы */
-    .phrase-box {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 16px 12px;
-      text-align: center;
-      margin-bottom: 12px;
-    }
+        <div class="math-formula">
+          <!-- 1. Приставка "Мы" -->
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--part-prefix)">نَـ</div>
+            <div class="math-label">Мы</div>
+          </div>
 
-    .phrase-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.85rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
+          <div class="math-sign">+</div>
 
-    .phrase-meaning {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
+          <!-- 2. Признак просьбы (10 порода) -->
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--part-form)">ـسْتَـ</div>
+            <div class="math-label">просим / ищем</div>
+          </div>
 
-    .phrase-meaning strong {
-      color: var(--text-main);
-    }
+          <div class="math-sign">+</div>
 
-    /* Шаги */
-    .steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+          <!-- 3. Корень помощи -->
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--part-root)">ـعِينُ</div>
+            <div class="math-label">помощь</div>
+          </div>
 
-    .step-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 10px;
-      border-radius: 10px;
-      background: #f8fafc;
-    }
+          <div class="math-sign">=</div>
 
-    .step-badge {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-top: 2px;
-    }
+          <!-- Итог -->
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--primary)">نَسْتَعِينُ</div>
+            <div class="math-label">«мы молим о&nbsp;помощи»</div>
+          </div>
+        </div>
 
-    .step-content {
-      font-size: 0.88rem;
-      line-height: 1.45;
-    }
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-badge">1</div>
+            <div class="step-content">
+              <span class="arabic-inline">نَـ</span> (На-) — приставка 1-го лица множественного
+              числа: <strong>«мы»</strong> (точно такая же, как&nbsp;в&nbsp;слове
+              <span class="arabic-inline">نَعْبُدُ</span>).
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-badge">2</div>
+            <div class="step-content">
+              <span class="arabic-inline">ـسْتَـ</span> (<em>-ста-</em>) — служебный элемент 10-й
+              породы глагола со&nbsp;значением <strong>«настойчиво просить / искать»</strong>.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-badge">3</div>
+            <div class="step-content">
+              ><span class="arabic-inline">ـعِينُ</span> восходит к&nbsp;корню<br />
+              <span class="arabic-inline">ع - و - ن</span>
+              &nbsp;(<em>‘авн</em>&nbsp;—&nbsp;«поддержка, подмога»).
+              <br /><br />Соединяясь вместе, слово выражает именно <strong>мольбу о помощи</strong>.
+            </div>
+          </div>
+        </div>
+      </section>
 
-    .arabic-inline {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin: 0 2px;
-    }
+      <!-- Полная связь 5-го аята -->
+      <section class="section-card">
+        <h2 class="section-title">✨ Итог всего 5-го аята</h2>
 
-    .nowrap {
-      white-space: nowrap;
-    }
+        <div class="phrase-box">
+          <div class="phrase-arabic">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
+          <div class="phrase-meaning">
+            Лишь Тебе мы поклоняемся <strong>и&nbsp;лишь Тебя молим о помощи</strong>
+          </div>
+        </div>
 
-    /* Q&A карточки */
-    .qa-box {
-      border-left: 3px solid var(--primary);
-      background: var(--green-bg);
-      padding: 10px 12px;
-      border-radius: 0 10px 10px 0;
-      margin-bottom: 10px;
-      font-size: 0.88rem;
-    }
+        <div class="qa-box">
+          <div class="qa-question">Почему на конце дамма ( ـُ )?</div>
+          <div class="qa-answer">
+            Как и глагол <span class="arabic-inline">نَعْبُدُ</span>, это глагол настоящего времени
+            в&nbsp;своей стандартной форме. Перед ним нет&nbsp;частиц, требующих сукуна
+            или&nbsp;фатхи, поэтому окончание сохраняет базовую
+            <strong>дамму (&nbsp;ـُ&nbsp;)</strong>:
+            <span class="nowrap"
+              ><em>«Наста‘ӣн<strong style="color: var(--primary)">у</strong>»</em></span
+            >.
+          </div>
+        </div>
+      </section>
 
-    .qa-question {
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .qa-answer {
-      color: #334155;
-      line-height: 1.4;
-    }
-
-    /* Подсказки */
-    .phonetic-card {
-      background: var(--blue-bg);
-      border: 1px solid #bae6fd;
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--blue-text);
-      margin-bottom: 14px;
-    }
-
-    .phonetic-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    .tip-card {
-      background: var(--accent-bg);
-      border: 1px solid var(--accent-border);
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--accent-text);
-      margin-bottom: 16px;
-    }
-
-    .tip-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    /* Навигация между словами */
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .nav-link {
-      flex: 1;
-      text-align: center;
-      padding: 12px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.88rem;
-      border: 1px solid var(--border-color);
-      background: var(--card-bg);
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-link.active {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    
-    <!-- Навигация наверх -->
-    <div class="top-nav">
-      <a href="index.html" class="back-btn">← К суре</a>
-      <span class="ayah-indicator">Аят 5 • Слово 4 (Конец аята)</span>
+      <!-- Навигация между словами -->
+      <div class="nav-buttons">
+        <a href="waiyyaka.html" class="nav-link">← 5:3. وَإِيَّاكَ</a>
+        <a href="ihdina.html" class="nav-link active">Аят 6: ٱهْدِنَا →</a>
+      </div>
     </div>
-
-    <!-- Заглавный блок -->
-    <header class="hero-card">
-      <div class="arabic-hero">نَسْتَعِينُ</div>
-      <div class="transcription">Наста‘ӣну</div>
-      <div class="meaning">«Мы просим о помощи»</div>
-    </header>
-
-    <!-- Из чего состоит глагол -->
-    <section class="section-card">
-      <h2 class="section-title">🔍 Из чего состоит глагол?</h2>
-      
-      <div class="math-formula">
-        <!-- 1. Приставка "Мы" -->
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--part-prefix);">نَـ</div>
-          <div class="math-label">Мы</div>
-        </div>
-
-        <div class="math-sign">+</div>
-
-        <!-- 2. Признак просьбы (10 порода) -->
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--part-form);">ـسْتَـ</div>
-          <div class="math-label">просим / ищем</div>
-        </div>
-
-        <div class="math-sign">+</div>
-
-        <!-- 3. Корень помощи -->
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--part-root);">ـعِينُ</div>
-          <div class="math-label">помощь</div>
-        </div>
-
-        <div class="math-sign">=</div>
-
-        <!-- Итог -->
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--primary);">نَسْتَعِينُ</div>
-          <div class="math-label">«мы молим о помощи»</div>
-        </div>
-      </div>
-
-      <div class="steps-list">
-        <div class="step-item">
-          <div class="step-badge">1</div>
-          <div class="step-content">
-            <span class="arabic-inline">نَـ</span> (На-) — приставка 1-го лица множественного числа: <strong>«мы»</strong> (точно такая же, как в слове <span class="arabic-inline">نَعْبُدُ</span>).
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-badge">2</div>
-          <div class="step-content">
-            <span class="arabic-inline">ـسْتَـ</span> (<em>-ста-</em>) — служебный элемент 10-й породы глагола со значением <strong>«настойчиво просить / искать»</strong>.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-badge">3</div>
-          <div class="step-content">
-            <span class="arabic-inline">ـعِينُ</span> восходит к корню <span class="arabic-inline">ع - و - ن</span> (<em>‘авн</em> — «поддержка, подмога»). Соединяясь вместе, слово выражает именно <strong>мольбу о помощи</strong>.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Полная связь 5-го аята -->
-    <section class="section-card">
-      <h2 class="section-title">✨ Итог всего 5-го аята</h2>
-      
-      <div class="phrase-box">
-        <div class="phrase-arabic">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
-        <div class="phrase-meaning">Лишь Тебе мы поклоняемся <strong>и лишь Тебя молим о помощи</strong></div>
-      </div>
-
-      <div class="qa-box">
-        <div class="qa-question">Почему на конце дамма ( ـُ )?</div>
-        <div class="qa-answer">
-          Как и глагол <span class="arabic-inline">نَعْبُدُ</span>, это глагол настоящего времени в своей стандартной форме. Перед ним нет частиц, требующих сукуна или фатхи, поэтому окончание сохраняет базовую <strong>дамму ( ـُ )</strong>: <span class="nowrap"><em>«Наста‘ӣн<strong style="color: var(--primary);">у</strong>»</em></span>.
-        </div>
-      </div>
-    </section>
-
-    <!-- Навигация между словами -->
-    <div class="nav-buttons">
-      <a href="waiyyaka.html" class="nav-link">← 5:3. وَإِيَّاكَ</a>
-      <a href="ihdina.html" class="nav-link active">Аят 6: ٱهْدِنَا →</a>
-    </div>
-
-  </div>
-
-</body>
+  </body>
 </html>

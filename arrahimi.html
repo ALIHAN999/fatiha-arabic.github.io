@@ -1,383 +1,212 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Слово ٱلرَّحِيمِ — Простой разбор для начинающих</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слово ٱلرَّحِيمِ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic и Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Шрифты: Noto Naskh Arabic и Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/general.css" />
 
-  <style>
-    :root {
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --primary: #0f766e;
-      --primary-light: #ccfbf1;
-      --border-color: #e2e8f0;
-      --accent-bg: #fef3c7;
-      --accent-border: #f59e0b;
-      --accent-text: #92400e;
-      --blue-bg: #e0f2fe;
-      --blue-text: #0369a1;
-    }
+    <style>
+      :root {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0f766e;
+        --primary-light: #ccfbf1;
+        --border-color: #e2e8f0;
+        --accent-bg: #fef3c7;
+        --accent-border: #f59e0b;
+        --accent-text: #92400e;
+        --blue-bg: #e0f2fe;
+        --blue-text: #0369a1;
+      }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
+      /* Связка всей басмалы */
+      .phrase-box {
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 16px 12px;
+        text-align: center;
+        margin-bottom: 12px;
+      }
 
-    body {
-      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.5;
-      padding-bottom: 40px;
-    }
+      .phrase-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 6px;
+      }
 
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 16px;
-    }
+      .phrase-meaning {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+      }
 
-    .top-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
+      .phrase-meaning strong {
+        color: var(--text-main);
+      }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-    }
+      /* Шаги */
 
-    .back-btn:active {
-      background: var(--primary-light);
-    }
+      .nowrap {
+        white-space: nowrap;
+      }
 
-    .ayah-indicator {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
+      /* Сравнение двух имён */
+      .compare-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 8px;
+      }
 
-    /* Главная карточка */
-    .hero-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-      margin-bottom: 16px;
-    }
+      .compare-item {
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 10px;
+        text-align: center;
+      }
 
-    .arabic-hero {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 3.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
+      .compare-name {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 4px;
+      }
 
-    .transcription {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 4px;
-    }
+      .compare-desc {
+        font-size: 0.76rem;
+        color: var(--text-muted);
+        line-height: 1.35;
+      }
 
-    .meaning {
-      font-size: 1rem;
-      color: var(--text-muted);
-    }
+      /* Карточки подсказок */
+      .phonetic-card {
+        background: var(--blue-bg);
+        border: 1px solid #bae6fd;
+        border-radius: 14px;
+        padding: 14px;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        color: var(--blue-text);
+        margin-bottom: 14px;
+      }
 
-    /* Секции */
-    .section-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 18px 16px;
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Связка всей басмалы */
-    .phrase-box {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 16px 12px;
-      text-align: center;
-      margin-bottom: 12px;
-    }
-
-    .phrase-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .phrase-meaning {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .phrase-meaning strong {
-      color: var(--text-main);
-    }
-
-    /* Шаги */
-    .steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .step-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 10px;
-      border-radius: 10px;
-      background: #f8fafc;
-    }
-
-    .step-badge {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-top: 2px;
-    }
-
-    .step-content {
-      font-size: 0.88rem;
-      line-height: 1.45;
-    }
-
-    .arabic-inline {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin: 0 2px;
-    }
-
-    .nowrap {
-      white-space: nowrap;
-    }
-
-    /* Сравнение двух имён */
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .compare-item {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .compare-name {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .compare-desc {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      line-height: 1.35;
-    }
-
-    /* Карточки подсказок */
-    .phonetic-card {
-      background: var(--blue-bg);
-      border: 1px solid #bae6fd;
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--blue-text);
-      margin-bottom: 14px;
-    }
-
-    .phonetic-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    .tip-card {
-      background: var(--accent-bg);
-      border: 1px solid var(--accent-border);
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--accent-text);
-      margin-bottom: 16px;
-    }
-
-    .tip-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    /* Навигация между словами */
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .nav-link {
-      flex: 1;
-      text-align: center;
-      padding: 12px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.88rem;
-      border: 1px solid var(--border-color);
-      background: var(--card-bg);
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-link.active {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    
-    <!-- Навигация наверх -->
-    <div class="top-nav">
-      <a href="index.html" class="back-btn">← К суре</a>
-      <span class="ayah-indicator">Аят 1 • Слово 4 (Конец аята)</span>
-    </div>
-
-    <!-- Заглавный блок -->
-    <header class="hero-card">
-      <div class="arabic-hero">ٱلرَّحِيمِ</div>
-      <div class="transcription">Ар-Рахи́ми</div>
-      <div class="meaning">«Милосердного»</div>
-    </header>
-
-    <!-- Роль слова -->
-    <section class="section-card">
-      <h2 class="section-title">✨ Роль слова в аяте</h2>
-      
-      <div class="phrase-box">
-        <div class="phrase-arabic">ٱللَّهِ ٱلرَّحْمَانِ ٱلرَّحِيمِ</div>
-        <div class="phrase-meaning">Аллаха → 1-е описание: <strong>Милостивого</strong> → 2-е описание: <strong>Милосердного</strong></div>
+      .phonetic-card strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Навигация наверх -->
+      <div class="top-nav">
+        <a href="index.html" class="back-btn">← К суре</a>
+        <span class="ayah-indicator">Аят 1 • Слово 4 (Конец аята)</span>
       </div>
 
-      <div class="steps-list">
-        <div class="step-item">
-          <div class="step-badge">1</div>
-          <div class="step-content">
-            Это <strong>второе описание</strong> (второй сыфат) к слову <span class="arabic-inline">ٱللَّهِ</span>. В арабском языке к одному предмету или имени может примыкать несколько описаний подряд.
+      <!-- Заглавный блок -->
+      <header class="hero-card">
+        <div class="arabic-hero">ٱلرَّحِيمِ</div>
+        <div class="transcription">Ар-Рахи́ми</div>
+        <div class="meaning">«Милосердного»</div>
+      </header>
+
+      <!-- Роль слова -->
+      <section class="section-card">
+        <h2 class="section-title">✨ Роль слова в&nbsp;аяте</h2>
+
+        <div class="phrase-box">
+          <div class="phrase-arabic">ٱللَّهِ ٱلرَّحْمَانِ ٱلرَّحِيمِ</div>
+          <div class="phrase-meaning">
+            Аллаха → 1-е описание: <strong>Милостивого</strong> → 2-е описание:
+            <strong>Милосердного</strong>
           </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">2</div>
-          <div class="step-content">
-            Как и предыдущее слово, оно полностью повторяет падеж главного имени и получает огласовку <strong>кясра ( ـِ )</strong> на конце: <span class="nowrap"><em>«Ар-Рахим<strong style="color: var(--primary);">и</strong>»</em></span>.
+
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-badge">1</div>
+            <div class="step-content">
+              Это <strong>второе описание</strong> (второй сыфат) к&nbsp;слову
+              <span class="arabic-inline">ٱللَّهِ</span>. В&nbsp;арабском языке к&nbsp;одному
+              предмету или&nbsp;имени может примыкать несколько описаний подряд.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-badge">2</div>
+            <div class="step-content">
+              Как и&nbsp;предыдущее слово, оно полностью повторяет падеж главного имени
+              и&nbsp;получает огласовку <strong>кясра (&nbsp;ـِ&nbsp;)</strong> на&nbsp;конце:
+              <span class="nowrap"
+                ><em>«Ар-Рахим<strong style="color: var(--primary)">и</strong>»</em></span
+              >.
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- В чём разница: Ар-Рахман и Ар-Рахим? -->
-    <section class="section-card">
-      <h2 class="section-title">💡 В чём разница между ними?</h2>
-      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
-        Оба имени происходят от одного корня<br> <span class="arabic-inline">ر  - ح - م</span> («милость»), но оттенки их смысла дополняют друг друга:
-      </p>
+      <!-- В чём разница: Ар-Рахман и Ар-Рахим? -->
+      <section class="section-card">
+        <h2 class="section-title">💡 В чём разница между ними?</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px">
+          Оба имени происходят от&nbsp;одного корня
+          <span class="arabic-inline">ر&nbsp;-&nbsp;ح&nbsp;-&nbsp;م</span> («милость»),
+          но&nbsp;оттенки их&nbsp;смысла дополняют друг друга:
+        </p>
 
-      <div class="compare-grid">
-        <div class="compare-item">
-          <div class="compare-name">ٱلرَّحْمَانِ</div>
-          <div class="compare-desc"><strong>Всеобъемлющая милость:</strong> даруется абсолютно всем созданиям в земной жизни (жизнь, пропитание, солнце, здоровье).</div>
+        <div class="compare-grid">
+          <div class="compare-item">
+            <div class="compare-name">ٱلرَّحْمَانِ</div>
+            <div class="compare-desc">
+              <strong>Всеобъемлющая милость:</strong> даруется абсолютно всем созданиям
+              в&nbsp;земной жизни (жизнь, пропитание, солнце, здоровье).
+            </div>
+          </div>
+          <div class="compare-item">
+            <div class="compare-name">ٱلرَّحِيمِ</div>
+            <div class="compare-desc">
+              <strong>Постоянная милость:</strong> непрерывное проявление милосердия (особенно
+              к&nbsp;верующим в&nbsp;День суда).
+            </div>
+          </div>
         </div>
-        <div class="compare-item">
-          <div class="compare-name">ٱلرَّحِيمِ</div>
-          <div class="compare-desc"><strong>Постоянная милость:</strong> непрерывное проявление милосердия (особенно к верующим в День суда).</div>
-        </div>
+      </section>
+
+      <!-- Солнечная буква -->
+      <div class="tip-card">
+        <strong>☀️ Напоминание о солнечной букве:</strong>
+        Буква <span class="arabic-inline">ر</span> (Ра) является солнечной, поэтому звук «Л»
+        в&nbsp;артикле опускается, а&nbsp;буква «Р» удваивается шаддой: <br />читаем
+        <b>«Ар-Рахи́м»,</b> а&nbsp;не&nbsp;«Аль-Рахи́м».
       </div>
-    </section>
 
-    <!-- Солнечная буква -->
-    <div class="tip-card">
-      <strong>☀️ Напоминание о солнечной букве:</strong>
-      Буква <span class="arabic-inline">ر</span> (Ра) является солнечной, поэтому звук «Л» в артикле опускается, а буква «Р» удваивается шаддой: читаем <b>«Ар-Рахи́м»,</b> <br>а не «Аль-Рахи́м».
+      <!-- Навигация -->
+      <div class="nav-buttons">
+        <a href="arrahmani.html" class="nav-link">← 3. ٱلرَّحْمَانِ</a>
+        <a href="alhamdu.html" class="nav-link active">Аят 2: ٱلْحَمْدُ →</a>
+      </div>
     </div>
-
-    <!-- Навигация -->
-    <div class="nav-buttons">
-      <a href="arrahmani.html" class="nav-link">← 3. ٱلرَّحْمَانِ</a>
-      <a href="alhamdu.html" class="nav-link active">Аят 2: ٱلْحَمْدُ →</a>
-    </div>
-
-  </div>
-
-</body>
+  </body>
 </html>
