@@ -1,296 +1,278 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Слово أَنْعَمْتَ — Простой разбор для начинающих</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слово أَنْعَمْتَ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic и Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/general.css">
+    <!-- Шрифты: Noto Naskh Arabic и Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/general.css" />
 
-  <style>
-    :root {
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --primary: #0f766e;
-      --primary-light: #ccfbf1;
-      --border-color: #e2e8f0;
-      --accent-bg: #fef3c7;
-      --accent-border: #f59e0b;
-      --accent-text: #92400e;
-      --blue-bg: #e0f2fe;
-      --blue-text: #0369a1;
-      --green-bg: #f0fdf4;
-      --green-text: #166534;
-      --part-verb: #2563eb;
-      --part-pronoun: #ea580c;
-    }
+    <style>
+      :root {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0f766e;
+        --primary-light: #ccfbf1;
+        --border-color: #e2e8f0;
+        --accent-bg: #fef3c7;
+        --accent-border: #f59e0b;
+        --accent-text: #92400e;
+        --blue-bg: #e0f2fe;
+        --blue-text: #0369a1;
+        --green-bg: #f0fdf4;
+        --green-text: #166534;
+        --part-verb: #2563eb;
+        --part-pronoun: #ea580c;
+      }
 
-    
+      /* Главная карточка */
 
-    
+      /* Секции */
 
-    
+      /* Адаптивная сетка формулы */
+      .math-formula {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: start;
+        gap: 4px;
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 14px 6px;
+        margin-bottom: 14px;
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-    
+      .math-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 0;
+        width: 100%;
+      }
 
-    
+      .math-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: clamp(1.2rem, 4.5vw, 1.65rem);
+        font-weight: 700;
+        line-height: 1.2;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        white-space: nowrap;
+      }
 
-    
+      .math-label {
+        font-size: clamp(0.62rem, 2.2vw, 0.72rem);
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-top: 4px;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+        overflow-wrap: break-word;
+      }
 
-    
+      .math-sign {
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        font-weight: 700;
+        color: #94a3b8;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        padding: 0 1px;
+      }
 
-    /* Главная карточка */
-    
+      /* Блок фразы */
+      .phrase-box {
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 16px 12px;
+        text-align: center;
+        margin-bottom: 12px;
+      }
 
-    
+      .phrase-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: clamp(1.35rem, 6vw, 2rem);
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 6px;
+        overflow-wrap: break-word;
+      }
 
-    
+      .phrase-arabic-small {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: clamp(1.25rem, 5.5vw, 1.8rem);
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 6px;
+        overflow-wrap: break-word;
+      }
 
-    
+      .phrase-meaning {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
 
-    /* Секции */
-    
+      .phrase-meaning strong {
+        color: var(--text-main);
+      }
 
-    
+      /* Шаги */
 
-    /* Адаптивная сетка формулы */
-    .math-formula {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
-      align-items: start;
-      gap: 4px;
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 14px 6px;
-      margin-bottom: 14px;
-      width: 100%;
-      box-sizing: border-box;
-    }
+      .nowrap {
+        white-space: nowrap;
+      }
 
-    .math-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 0;
-      width: 100%;
-    }
+      /* Q&A карточки */
+      .qa-box {
+        border-left: 3px solid var(--primary);
+        background: var(--green-bg);
+        padding: 10px 12px;
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 10px;
+        font-size: 0.88rem;
+      }
 
-    .math-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: clamp(1.2rem, 4.5vw, 1.65rem);
-      font-weight: 700;
-      line-height: 1.2;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      width: 100%;
-      white-space: nowrap;
-    }
+      .qa-question {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 4px;
+      }
 
-    .math-label {
-      font-size: clamp(0.62rem, 2.2vw, 0.72rem);
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-top: 4px;
-      line-height: 1.2;
-      text-align: center;
-      width: 100%;
-      overflow-wrap: break-word;
-    }
+      .qa-answer {
+        color: #334155;
+        line-height: 1.6;
+      }
 
-    .math-sign {
-      font-size: clamp(0.9rem, 3vw, 1.2rem);
-      font-weight: 700;
-      color: #94a3b8;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-      padding: 0 1px;
-    }
+      /* Подсказки */
+      .phonetic-card {
+        background: var(--blue-bg);
+        border: 1px solid #bae6fd;
+        border-radius: 14px;
+        padding: 14px;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        color: var(--blue-text);
+        margin-bottom: 14px;
+      }
 
-    /* Блок фразы */
-    .phrase-box {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 16px 12px;
-      text-align: center;
-      margin-bottom: 12px;
-    }
+      .phonetic-card strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+      }
 
-    .phrase-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .phrase-meaning {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .phrase-meaning strong {
-      color: var(--text-main);
-    }
-
-    /* Шаги */
-    
-
-    
-
-    
-
-    
-
-    
-
-    .nowrap {
-      white-space: nowrap;
-    }
-
-    /* Q&A карточки */
-    .qa-box {
-      border-left: 3px solid var(--primary);
-      background: var(--green-bg);
-      padding: 10px 12px;
-      border-radius: 0 10px 10px 0;
-      margin-bottom: 10px;
-      font-size: 0.88rem;
-    }
-
-    .qa-question {
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .qa-answer {
-      color: #334155;
-      line-height: 1.6;
-    }
-
-    /* Подсказки */
-    .phonetic-card {
-      background: var(--blue-bg);
-      border: 1px solid #bae6fd;
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--blue-text);
-      margin-bottom: 14px;
-    }
-
-    .phonetic-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    
-
-    
-
-    /* Навигация между словами */
-    
-
-    
-
-    
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    
-    <!-- Навигация наверх -->
-    <div class="top-nav">
-      <a href="index.html" class="back-btn">← К суре</a>
-      <span class="ayah-indicator">Аят 7 • Слово 3</span>
-    </div>
-
-    <!-- Заглавный блок -->
-    <header class="hero-card">
-      <div class="arabic-hero">أَنْعَمْتَ</div>
-      <div class="transcription">Ан‘амта</div>
-      <div class="meaning">«Ты облагодетельствовал»</div>
-    </header>
-
-    <!-- Из чего состоит слово -->
-    <section class="section-card">
-      <h2 class="section-title">🔍 Из чего состоит глагол?</h2>
-      
-      <div class="math-formula">
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--part-verb);">أَنْعَمْ</div>
-          <div class="math-label">Одарил благом</div>
-        </div>
-        <div class="math-sign">+</div>
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--part-pronoun);">ـتَ</div>
-          <div class="math-label">Ты (суффикс)</div>
-        </div>
-        <div class="math-sign">=</div>
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--primary);">أَنْعَمْتَ</div>
-          <div class="math-label">«Ты облагодетельствовал»</div>
-        </div>
+      /* Навигация между словами */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Навигация наверх -->
+      <div class="top-nav">
+        <a href="index.html" class="back-btn">← К суре</a>
+        <span class="ayah-indicator">Аят 7 • Слово 3</span>
       </div>
 
-      <div class="steps-list">
-        <div class="step-item">
-          <div class="step-badge">1</div>
-          <div class="step-content">
-            <span class="arabic-inline">أَنْعَمْ</span> — глагол прошедшего времени. Происходит от корня<br> <span class="arabic-inline">ن - ع - م</span> (<em>ни‘ма</em> — благодать, дар) и означает действие: <strong>оказать щедрую милость</strong>.
+      <!-- Заглавный блок -->
+      <header class="hero-card">
+        <div class="arabic-hero">أَنْعَمْتَ</div>
+        <div class="transcription">Ан‘амта</div>
+        <div class="meaning">«Ты облагодетельствовал»</div>
+      </header>
+
+      <!-- Из чего состоит слово -->
+      <section class="section-card">
+        <h2 class="section-title">🔍 Из чего состоит глагол?</h2>
+
+        <div class="math-formula">
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--part-verb)">أَنْعَمْ</div>
+            <div class="math-label">Одарил благом</div>
+          </div>
+          <div class="math-sign">+</div>
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--part-pronoun)">ـتَ</div>
+            <div class="math-label">Ты (суффикс)</div>
+          </div>
+          <div class="math-sign">=</div>
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--primary)">أَنْعَمْتَ</div>
+            <div class="math-label">«Ты облагодетельствовал»</div>
           </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">2</div>
-          <div class="step-content">
-            <span class="arabic-inline">ـتَ</span> — слитное местоимение прошедшего времени, указывающее на того, кто совершил действие: <strong>«Ты»</strong>.
+
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-badge">1</div>
+            <div class="step-content">
+              <span class="arabic-inline">أَنْعَمْ</span> — глагол прошедшего времени. Происходит от
+              корня<br />
+              <span class="arabic-inline">ن - ع - م</span> (<em>ни‘ма</em> — благодать, дар) и
+              означает действие: <strong>оказать щедрую милость</strong>.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-badge">2</div>
+            <div class="step-content">
+              <span class="arabic-inline">ـتَ</span> — слитное местоимение прошедшего времени,
+              указывающее на того, кто совершил действие: <strong>«Ты»</strong>.
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Почему именно фатха на конце? -->
-    <section class="section-card">
-      <h2 class="section-title">❓ Почему на конце черточка сверху (фатха)?</h2>
-      
-      <div class="qa-box">
-        <div class="qa-question">Разница огласовок в арабских глаголах:</div>
-        <div class="qa-answer">
-          Огласовка суффикса строго указывает на действующее лицо:<br>
-          <br>• <span class="arabic-inline">أَنْعَمْـتُ</span> ( <em>-ту</em> ) = «<strong>Я</strong> облагодетельствовал»;<br>
-          <br>• <span class="arabic-inline">أَنْعَمْـتَ</span> ( <em>-та</em> ) = «<strong>Ты</strong> облагодетельствовал».<br>
-          Именно поэтому чтение буквы «Та» <br>с <strong>фатхой ( ـَ )</strong> принципиально важно <br>для сохранения смысла обращения <br>ко Всевышнему.
+      <!-- Почему именно фатха на конце? -->
+      <section class="section-card">
+        <h2 class="section-title">❓ Почему на конце черточка сверху (фатха)?</h2>
+
+        <div class="qa-box">
+          <div class="qa-question">Разница огласовок в арабских глаголах:</div>
+          <div class="qa-answer">
+            Огласовка суффикса строго указывает на действующее лицо:<br />
+            <br />• <span class="arabic-inline">أَنْعَمْـتُ</span> ( <em>-ту</em> ) = «<strong
+              >Я</strong
+            >
+            облагодетельствовал»;<br />
+            <br />• <span class="arabic-inline">أَنْعَمْـتَ</span> ( <em>-та</em> ) = «<strong
+              >Ты</strong
+            >
+            облагодетельствовал».<br />
+            Именно поэтому чтение буквы «Та» <br />с <strong>фатхой ( ـَ )</strong> принципиально
+            важно <br />для сохранения смысла обращения <br />ко Всевышнему.
+          </div>
         </div>
+      </section>
+
+      <!-- Навигация между словами -->
+      <div class="nav-buttons">
+        <a href="allazina.html" class="nav-link">← 7:2. ٱلَّذِينَ</a>
+        <a href="alayhim.html" class="nav-link active">7:4. عَلَيْهِمْ →</a>
       </div>
-    </section>
-
-    <!-- Навигация между словами -->
-    <div class="nav-buttons">
-      <a href="allazina.html" class="nav-link">← 7:2. ٱلَّذِينَ</a>
-      <a href="alayhim.html" class="nav-link active">7:4. عَلَيْهِمْ →</a>
     </div>
-
-  </div>
-
-</body>
+  </body>
 </html>

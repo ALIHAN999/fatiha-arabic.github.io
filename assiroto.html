@@ -1,292 +1,268 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Слово ٱلصِّرَاطَ — Простой разбор для начинающих</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слово ٱلصِّرَاطَ — Простой разбор для начинающих</title>
 
-  <!-- Шрифты: Noto Naskh Arabic и Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/general.css">
+    <!-- Шрифты: Noto Naskh Arabic и Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/general.css" />
 
-  <style>
-    :root {
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --primary: #0f766e;
-      --primary-light: #ccfbf1;
-      --border-color: #e2e8f0;
-      --accent-bg: #fef3c7;
-      --accent-border: #f59e0b;
-      --accent-text: #92400e;
-      --blue-bg: #e0f2fe;
-      --blue-text: #0369a1;
-      --green-bg: #f0fdf4;
-      --green-text: #166534;
-      --part-art: #0284c7;
-      --part-noun: #16a34a;
-    }
+    <style>
+      :root {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0f766e;
+        --primary-light: #ccfbf1;
+        --border-color: #e2e8f0;
+        --accent-bg: #fef3c7;
+        --accent-border: #f59e0b;
+        --accent-text: #92400e;
+        --blue-bg: #e0f2fe;
+        --blue-text: #0369a1;
+        --green-bg: #f0fdf4;
+        --green-text: #166534;
+        --part-art: #0284c7;
+        --part-noun: #16a34a;
+      }
 
-    
+      /* Равномерная сетка формулы со знаками строго по центру */
+      .math-formula {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: start;
+        gap: 4px;
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 14px 6px;
+        margin-bottom: 14px;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-    
+      .math-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 0;
+        width: 100%;
+      }
 
-    
+      .math-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: clamp(1.2rem, 4.5vw, 1.65rem);
+        font-weight: 700;
+        line-height: 1.2;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        white-space: nowrap;
+      }
 
-    
+      .math-label {
+        font-size: clamp(0.62rem, 2.2vw, 0.72rem);
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-top: 4px;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+        overflow-wrap: break-word;
+      }
 
-    
+      .math-sign {
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        font-weight: 700;
+        color: #94a3b8;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        padding: 0 1px;
+      }
 
-    
+      /* Блок фразы */
+      .phrase-box {
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 16px 12px;
+        text-align: center;
+        margin-bottom: 12px;
+      }
 
-    
+      .phrase-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 6px;
+      }
 
-    /* Главная карточка */
-    
+      .phrase-meaning {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
 
-    
+      .phrase-meaning strong {
+        color: var(--text-main);
+      }
 
-    
+      .nowrap {
+        white-space: nowrap;
+      }
 
-    
+      /* Q&A карточки */
+      .qa-box {
+        border-left: 3px solid var(--primary);
+        background: var(--green-bg);
+        padding: 10px 12px;
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 10px;
+        font-size: 0.88rem;
+      }
 
-    /* Секции */
-    
+      .qa-question {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 4px;
+      }
 
-    
+      .qa-answer {
+        color: #334155;
+        line-height: 1.6;
+      }
 
-    /* Равномерная сетка формулы со знаками строго по центру */
-    .math-formula {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr;
-      align-items: start;
-      gap: 6px;
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 16px 8px;
-      margin-bottom: 14px;
-      text-align: center;
-    }
+      /* Подсказки */
+      .phonetic-card {
+        background: var(--blue-bg);
+        border: 1px solid #bae6fd;
+        border-radius: 14px;
+        padding: 14px;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        color: var(--blue-text);
+        margin-bottom: 14px;
+      }
 
-    .math-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .math-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 1.75rem;
-      font-weight: 700;
-      line-height: 1.2;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .math-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-top: 6px;
-      line-height: 1.25;
-      text-align: center;
-    }
-
-    .math-sign {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #94a3b8;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-    }
-
-    /* Блок фразы */
-    .phrase-box {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 16px 12px;
-      text-align: center;
-      margin-bottom: 12px;
-    }
-
-    .phrase-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .phrase-meaning {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .phrase-meaning strong {
-      color: var(--text-main);
-    }
-
-    /* Шаги */
-    
-
-    
-
-    
-
-    
-
-    
-
-    .nowrap {
-      white-space: nowrap;
-    }
-
-    /* Q&A карточки */
-    .qa-box {
-      border-left: 3px solid var(--primary);
-      background: var(--green-bg);
-      padding: 10px 12px;
-      border-radius: 0 10px 10px 0;
-      margin-bottom: 10px;
-      font-size: 0.88rem;
-    }
-
-    .qa-question {
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .qa-answer {
-      color: #334155;
-      line-height: 1.6;
-    }
-
-    /* Подсказки */
-    .phonetic-card {
-      background: var(--blue-bg);
-      border: 1px solid #bae6fd;
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--blue-text);
-      margin-bottom: 14px;
-    }
-
-    .phonetic-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    
-
-    
-
-    /* Навигация между словами */
-    
-
-    
-
-    
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    
-    <!-- Навигация наверх -->
-    <div class="top-nav">
-      <a href="index.html" class="back-btn">← К суре</a>
-      <span class="ayah-indicator">Аят 6 • Слово 2</span>
-    </div>
-
-    <!-- Заглавный блок -->
-    <header class="hero-card">
-      <div class="arabic-hero">ٱلصِّرَاطَ</div>
-      <div class="transcription">Ас-Сыра́та</div>
-      <div class="meaning">«Путь» / «Прямой тракт»</div>
-    </header>
-
-    <!-- Из чего состоит слово -->
-    <section class="section-card">
-      <h2 class="section-title">🔍 Из чего состоит слово?</h2>
-      
-      <div class="math-formula">
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--part-art);">ٱلـ</div>
-          <div class="math-label">Определённый артикль</div>
-        </div>
-        <div class="math-sign">+</div>
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--part-noun);">صِرَاط</div>
-          <div class="math-label">Путь / Дорога</div>
-        </div>
-        <div class="math-sign">=</div>
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--primary);">ٱلصِّرَاطَ</div>
-          <div class="math-label">«Тот самый Путь»</div>
-        </div>
+      .phonetic-card strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Навигация наверх -->
+      <div class="top-nav">
+        <a href="index.html" class="back-btn">← К суре</a>
+        <span class="ayah-indicator">Аят 6 • Слово 2</span>
       </div>
 
-      <div class="steps-list">
-        <div class="step-item">
-          <div class="step-badge">1</div>
-          <div class="step-content">
-            <span class="arabic-inline">ٱلـ</span> (Аль) — определённый артикль. Он указывает не на какую-то случайную тропу, а на <strong>тот самый, единственный истинный Путь</strong>.
+      <!-- Заглавный блок -->
+      <header class="hero-card">
+        <div class="arabic-hero">ٱلصِّرَاطَ</div>
+        <div class="transcription">Ас-Сыра́та</div>
+        <div class="meaning">«Путь» / «Прямой тракт»</div>
+      </header>
+
+      <!-- Из чего состоит слово -->
+      <section class="section-card">
+        <h2 class="section-title">🔍 Из&nbsp;чего состоит слово?</h2>
+
+        <div class="math-formula">
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--part-art)">ٱلـ</div>
+            <div class="math-label">Определённый артикль</div>
+          </div>
+          <div class="math-sign">+</div>
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--part-noun)">صِرَاط</div>
+            <div class="math-label">Путь / Дорога</div>
+          </div>
+          <div class="math-sign">=</div>
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--primary)">ٱلصِّرَاطَ</div>
+            <div class="math-label">«Тот самый Путь»</div>
           </div>
         </div>
-        
-    </section>
 
-    <!-- Почему на конце фатха (звук 'а')? -->
-    <section class="section-card">
-      <h2 class="section-title">❓ Почему на конце черточка сверху (фатха)?</h2>
-      
-      <div class="phrase-box">
-        <div class="phrase-arabic">ٱهْدِنَا ٱلصِّرَاطَ</div>
-        <div class="phrase-meaning">Веди нас → <strong>(куда? чему?) Пути</strong></div>
-      </div>
-
-      <div class="qa-box">
-        <div class="qa-question">Второе прямое дополнение (Маф‘уль бихи):</div>
-        <div class="qa-answer">
-          Глагол <span class="arabic-inline">ٱهْدِ</span> («Веди / наставь») <br>в арабском языке особенный — он соединяет сразу два дополнения без предлогов: 
-          1) <em>кого?</em> — нас (<span class="arabic-inline">ـنَا</span>); 
-          <br>2) <em>к чему / куда?</em> — Путь (<span class="arabic-inline">ٱلصِّرَاطَ</span>). 
-          <br>Так как действие падает прямо на это слово, оно стоит в винительном падеже (<em>мансуб</em>) с огласовкой <br><strong>фатха ( ـَ )</strong> на конце: <span class="nowrap"><em>«Ас-Сырāт<strong style="color: var(--primary);">а</strong>»</em></span>.
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-badge">1</div>
+            <div class="step-content">
+              <span class="arabic-inline">ٱلـ</span> (Аль) — определённый артикль. Он указывает
+              не&nbsp;на&nbsp;какую-то случайную тропу, а&nbsp;на&nbsp;<strong
+                >тот самый, единственный истинный Путь</strong
+              >.
+            </div>
+          </div>
         </div>
+      </section>
+
+      <!-- Почему на конце фатха (звук 'а')? -->
+      <section class="section-card">
+        <h2 class="section-title">❓ Почему на&nbsp;конце черточка сверху (фатха)?</h2>
+
+        <div class="phrase-box">
+          <div class="phrase-arabic">ٱهْدِنَا ٱلصِّرَاطَ</div>
+          <div class="phrase-meaning">Веди нас → <strong>(куда? чему?) Пути</strong></div>
+        </div>
+
+        <div class="qa-box">
+          <div class="qa-question">Второе прямое дополнение (Маф‘уль бихи):</div>
+          <div class="qa-answer">
+            Глагол <span class="arabic-inline">ٱهْدِ</span> («Веди / наставь») <br />в&nbsp;арабском
+            языке особенный — он соединяет сразу два дополнения без предлогов: <br /><br />1)
+            <em>кого?</em> &nbsp;—&nbsp; нас (<span class="arabic-inline">ـنَا</span>);
+            <br /><br />2) <em>к чему / куда?</em> &nbsp;—&nbsp; Путь (<span class="arabic-inline"
+              >ٱلصِّرَاطَ</span
+            >). <br /><br />Так как действие падает прямо на&nbsp;это слово, оно стоит
+            в&nbsp;винительном падеже (<em>мансуб</em>) с&nbsp;огласовкой
+            <strong>фатха (&nbsp;ـَ&nbsp;)</strong>
+            на конце:
+            <span class="nowrap"
+              ><em>«Ас-Сырāт<strong style="color: var(--primary)">а</strong>»</em></span
+            >.
+          </div>
+        </div>
+      </section>
+
+      <!-- Тонкость слова Сырат -->
+      <div class="tip-card">
+        <strong>💡 Почему именно «Сыра́т», а&nbsp;не&nbsp;другое слово?</strong>
+        В арабском языке есть слова <em>«тарик»</em> (любая дорога) и&nbsp;<em>«сабиль»</em> (тропа,
+        путь). Но&nbsp;слово <b>«Сырат»</b> имеет особенное значение: это&nbsp;<b
+          >широкая, прямая, главная магистраль</b
+        >, которая ведёт прямо к&nbsp;цели, без тупиков, крутых поворотов и&nbsp;опасных развилок.
       </div>
-    </section>
 
-    <!-- Тонкость слова Сырат -->
-    <div class="tip-card">
-      <strong>💡 Почему именно «Сыра́т», а не другое слово?</strong>
-      В арабском языке есть слова <em>«тарик»</em> (любая дорога) и <em>«сабиль»</em> (тропа, путь). Но слово <b>«Сырат»</b> имеет особенное значение: <br>это <b>широкая, прямая, главная магистраль</b>, которая ведёт прямо к цели, без тупиков, крутых поворотов и опасных развилок.
+      <!-- Навигация между словами -->
+      <div class="nav-buttons">
+        <a href="ihdina.html" class="nav-link">← 6:1. ٱهْدِنَا</a>
+        <a href="almustaqima.html" class="nav-link active">6:3. ٱلْمُسْتَقِيمَ →</a>
+      </div>
     </div>
-
-    <!-- Навигация между словами -->
-    <div class="nav-buttons">
-      <a href="ihdina.html" class="nav-link">← 6:1. ٱهْدِنَا</a>
-      <a href="almustaqima.html" class="nav-link active">6:3. ٱلْمُسْتَقِيمَ →</a>
-    </div>
-
-  </div>
-
-</body>
+  </body>
 </html>

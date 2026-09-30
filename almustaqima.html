@@ -1,290 +1,262 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Слово ٱلْمُسْتَقِيمَ — Простой разбор для начинающих</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слово ٱلْمُسْتَقِيمَ — Простой разбор для начинающих</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/general.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/general.css" />
 
-  <style>
-    :root {
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --primary: #0f766e;
-      --primary-light: #ccfbf1;
-      --border-color: #e2e8f0;
-      --accent-bg: #fef3c7;
-      --accent-border: #f59e0b;
-      --accent-text: #92400e;
-      --blue-bg: #e0f2fe;
-      --blue-text: #0369a1;
-      --green-bg: #f0fdf4;
-      --green-text: #166534;
-      --part-art: #0284c7;
-      --part-adj: #16a34a;
-    }
+    <style>
+      :root {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0f766e;
+        --primary-light: #ccfbf1;
+        --border-color: #e2e8f0;
+        --accent-bg: #fef3c7;
+        --accent-border: #f59e0b;
+        --accent-text: #92400e;
+        --blue-bg: #e0f2fe;
+        --blue-text: #0369a1;
+        --green-bg: #f0fdf4;
+        --green-text: #166534;
+        --part-art: #0284c7;
+        --part-adj: #16a34a;
+      }
 
-    
+      /* АДАПТИВНАЯ СЕТКА ФОРМУЛЫ */
+      .math-formula {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: start;
+        gap: 4px;
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 14px 6px;
+        margin-bottom: 14px;
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-    
+      .math-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 0;
+        width: 100%;
+      }
 
-    
+      .math-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: clamp(1.2rem, 4.5vw, 1.65rem);
+        font-weight: 700;
+        line-height: 1.2;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        white-space: nowrap;
+      }
 
-    
+      .math-label {
+        font-size: clamp(0.62rem, 2.2vw, 0.72rem);
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-top: 4px;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+        overflow-wrap: break-word;
+      }
 
-    
+      .math-sign {
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        font-weight: 700;
+        color: #94a3b8;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        padding: 0 1px;
+      }
 
-    
+      .phrase-box {
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 16px 12px;
+        text-align: center;
+        margin-bottom: 12px;
+      }
 
-    
+      .phrase-arabic {
+        direction: rtl;
+        font-family: 'Noto Naskh Arabic', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 6px;
+      }
 
-    
+      .phrase-meaning {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
 
-    
+      .phrase-meaning strong {
+        color: var(--text-main);
+      }
 
-    
+      .nowrap {
+        white-space: nowrap;
+      }
 
-    
+      .qa-box {
+        border-left: 3px solid var(--primary);
+        background: var(--green-bg);
+        padding: 10px 12px;
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 10px;
+        font-size: 0.88rem;
+      }
 
-    
+      .qa-question {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 4px;
+      }
 
-    
+      .qa-answer {
+        color: #334155;
+        line-height: 1.6;
+      }
 
-    /* АДАПТИВНАЯ СЕТКА ФОРМУЛЫ */
-    .math-formula {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
-      align-items: start;
-      gap: 4px;
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 14px 6px;
-      margin-bottom: 14px;
-      width: 100%;
-      box-sizing: border-box;
-    }
+      .phonetic-card {
+        background: var(--blue-bg);
+        border: 1px solid #bae6fd;
+        border-radius: 14px;
+        padding: 14px;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        color: var(--blue-text);
+        margin-bottom: 14px;
+      }
 
-    .math-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 0;
-      width: 100%;
-    }
-
-    .math-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: clamp(1.2rem, 4.5vw, 1.65rem);
-      font-weight: 700;
-      line-height: 1.2;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      width: 100%;
-      white-space: nowrap;
-    }
-
-    .math-label {
-      font-size: clamp(0.62rem, 2.2vw, 0.72rem);
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-top: 4px;
-      line-height: 1.2;
-      text-align: center;
-      width: 100%;
-      overflow-wrap: break-word;
-    }
-
-    .math-sign {
-      font-size: clamp(0.9rem, 3vw, 1.2rem);
-      font-weight: 700;
-      color: #94a3b8;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-      padding: 0 1px;
-    }
-
-    .phrase-box {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 16px 12px;
-      text-align: center;
-      margin-bottom: 12px;
-    }
-
-    .phrase-arabic {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .phrase-meaning {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .phrase-meaning strong {
-      color: var(--text-main);
-    }
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    .nowrap {
-      white-space: nowrap;
-    }
-
-    .qa-box {
-      border-left: 3px solid var(--primary);
-      background: var(--green-bg);
-      padding: 10px 12px;
-      border-radius: 0 10px 10px 0;
-      margin-bottom: 10px;
-      font-size: 0.88rem;
-    }
-
-    .qa-question {
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .qa-answer {
-      color: #334155;
-      line-height: 1.6;
-    }
-
-    .phonetic-card {
-      background: var(--blue-bg);
-      border: 1px solid #bae6fd;
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      color: var(--blue-text);
-      margin-bottom: 14px;
-    }
-
-    .phonetic-card strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.9rem;
-    }
-
-    
-
-    
-
-    
-
-    
-
-    
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    
-    <div class="top-nav">
-      <a href="index.html" class="back-btn">← К суре</a>
-      <span class="ayah-indicator">Аят 6 • Слово 3 (Конец аята)</span>
-    </div>
-
-    <header class="hero-card">
-      <div class="arabic-hero">ٱلْمُسْتَقِيمَ</div>
-      <div class="transcription">Аль-Мустакъӣма </div>
-      <div class="meaning">«Прямой» / «Непоколебимый»</div>
-    </header>
-
-    <section class="section-card">
-      <h2 class="section-title">🔍 Из чего состоит слово?</h2>
-      
-      <div class="math-formula">
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--part-art);">ٱلْـ</div>
-          <div class="math-label">Артикль</div>
-        </div>
-        <div class="math-sign">+</div>
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--part-adj);">مُسْتَقِيم</div>
-          <div class="math-label">Прямой</div>
-        </div>
-        <div class="math-sign">=</div>
-        <div class="math-item">
-          <div class="math-arabic" style="color: var(--primary);">ٱلْمُسْتَقِيمَ</div>
-          <div class="math-label">«Прямой»</div>
-        </div>
+      .phonetic-card strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-nav">
+        <a href="index.html" class="back-btn">← К суре</a>
+        <span class="ayah-indicator">Аят 6 • Слово 3 (Конец аята)</span>
       </div>
 
-      <div class="steps-list">
-        <div class="step-item">
-          <div class="step-badge">1</div>
-          <div class="step-content">
-            <span class="arabic-inline">ٱلْـ</span> (Аль) — определённый артикль. Он показывает, что слово связано с конкретным путём, о котором идёт речь.
+      <header class="hero-card">
+        <div class="arabic-hero">ٱلْمُسْتَقِيمَ</div>
+        <div class="transcription">Аль-Мустакъӣма</div>
+        <div class="meaning">«Прямой» / «Непоколебимый»</div>
+      </header>
+
+      <section class="section-card">
+        <h2 class="section-title">🔍 Из чего состоит слово?</h2>
+
+        <div class="math-formula">
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--part-art)">ٱلْـ</div>
+            <div class="math-label">Артикль</div>
+          </div>
+          <div class="math-sign">+</div>
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--part-adj)">مُسْتَقِيم</div>
+            <div class="math-label">Прямой</div>
+          </div>
+          <div class="math-sign">=</div>
+          <div class="math-item">
+            <div class="math-arabic" style="color: var(--primary)">ٱلْمُسْتَقِيمَ</div>
+            <div class="math-label">«Прямой»</div>
           </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">2</div>
-          <div class="step-content">
-            <span class="arabic-inline">مُسْتَقِيم</span> (Мустакъӣм) — происходит от корня <span class="arabic-inline">ق - و - م</span> <br>со значением «стоять прямо, <br>без искривлений и отклонений».
+
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-badge">1</div>
+            <div class="step-content">
+              <span class="arabic-inline">ٱلْـ</span> (Аль) — определённый артикль. Он показывает,
+              что слово связано с&nbsp;конкретным путём, о&nbsp;котором идёт речь.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-badge">2</div>
+            <div class="step-content">
+              <span class="arabic-inline">مُسْتَقِيم</span> (Мустакъӣм) — происходит
+              от&nbsp;корня<br /><br />
+              <span class="arabic-inline">ق - و - م</span> <br /><br />со&nbsp;значением «стоять
+              прямо, <br />без&nbsp;искривлений и&nbsp;отклонений».
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section-card">
-      <h2 class="section-title">✨ Роль слова: Описание (Сыфат)</h2>
-      
-      <div class="phrase-box">
-        <div class="phrase-arabic">ٱلصِّرَاطَ ٱلْمُسْتَقِيمَ</div>
-        <div class="phrase-meaning">Путь (какой?) → <strong>Прямой</strong></div>
-      </div>
+      <section class="section-card">
+        <h2 class="section-title">✨ Роль слова: Описание (Сыфат)</h2>
 
-      <div class="qa-box">
-        <div class="qa-question">Почему на конце фатха ( ـَ )?</div>
-        <div class="qa-answer">
-          В арабском языке прилагательное-описание (<strong>Сыфат</strong>) работает как зеркало: оно полностью копирует падеж существительного, которое описывает. Так как слово <span class="arabic-inline">ٱلصِّرَاطَ</span> стояло с огласовкой <strong>фатха</strong> (винительный падеж прямого дополнения), то и слово <span class="arabic-inline">ٱلْمُسْتَقِيمَ</span> <br>в точности повторяет эту огласовку: <span class="nowrap"><em>«Аль-Мустакъӣм<strong style="color: var(--primary);">а</strong>»</em></span>.
+        <div class="phrase-box">
+          <div class="phrase-arabic">ٱلصِّرَاطَ ٱلْمُسْتَقِيمَ</div>
+          <div class="phrase-meaning">Путь (какой?) → <strong>Прямой</strong></div>
         </div>
+
+        <div class="qa-box">
+          <div class="qa-question">Почему на конце фатха ( ـَ )?</div>
+          <div class="qa-answer">
+            В арабском языке прилагательное-описание (<strong>Сыфат</strong>) работает как зеркало:
+            оно полностью копирует падеж существительного, которое описывает. <br /><br />Так как
+            слово <span class="arabic-inline">ٱلصِّرَاطَ</span> стояло с&nbsp;огласовкой
+            <strong>фатха</strong> (винительный падеж прямого дополнения), то&nbsp;и&nbsp;слово
+            <span class="arabic-inline">ٱلْمُسْتَقِيمَ</span> в&nbsp;точности повторяет эту
+            огласовку:
+            <span class="nowrap"
+              ><em>«Аль-Мустакъӣм<strong style="color: var(--primary)">а</strong>»</em></span
+            >.
+          </div>
+        </div>
+      </section>
+
+      <div class="tip-card">
+        <strong>💡 Что означает «Мустакъӣм»?</strong>
+        Это путь, который обладает тремя качествами одновременно: <br /><br />он
+        <b>кратчайший</b> (потому что прямая линия всегда короче кривой), <br /><br />он
+        <b>ровный</b> (без обрывов и&nbsp;опасных виражей) <br /><br />и&nbsp;он
+        <b>устремлён ровно вверх</b> к&nbsp;довольству Господа. <br /><br />Сбиться с&nbsp;такого
+        пути можно, лишь свернув в&nbsp;сторону.
       </div>
-    </section>
 
-    <div class="tip-card">
-      <strong>💡 Что означает «Мустакъӣм»?</strong>
-      Это путь, который обладает тремя качествами одновременно: <br>он <b>кратчайший</b> (потому что прямая линия всегда короче кривой), <br>он <b>ровный</b> (без обрывов и опасных виражей) <br>и он <b>устремлён ровно вверх</b> к довольству Господа. <br>Сбиться с такого пути можно, лишь свернув в сторону.
+      <div class="nav-buttons">
+        <a href="assiroto.html" class="nav-link">← 6:2. ٱلصِّرَاطَ</a>
+        <a href="siroto.html" class="nav-link active">Аят 7: صِرَاطَ →</a>
+      </div>
     </div>
-
-    <div class="nav-buttons">
-      <a href="assiroto.html" class="nav-link">← 6:2. ٱلصِّرَاطَ</a>
-      <a href="siroto.html" class="nav-link active">Аят 7: صِرَاطَ →</a>
-    </div>
-
-  </div>
-
-</body>
+  </body>
 </html>
